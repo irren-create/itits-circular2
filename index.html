@@ -1,0 +1,3429 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Circula | Marketplace Limbah Industri Sirkular</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ==========================================================================
+   Circula Design System & Theme Variables
+   ========================================================================== */
+        :root {
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+
+            /* Primary Emerald Eco Palette */
+            --p: #15803d;
+            --p-rgb: 21, 128, 61;
+            --p-hover: #166534;
+            --on-p: #ffffff;
+            --pc: #dcfce7;
+            --on-pc: #14532d;
+            --lime: #10b981;
+            --on-lime: #ffffff;
+
+            /* Neutrals & Surfaces (Clean Modern Slate) */
+            --s: #f8fafc;
+            --sc: #ffffff;
+            --sch: #f1f5f9;
+            --on-s: #0f172a;
+            --on-sv: #64748b;
+            --ol: #e2e8f0;
+            --olv: #cbd5e1;
+
+            /* Component Colors */
+            --tile: #065f46;
+            --tile-ic: #a7f3d0;
+            --card-bg: #ffffff;
+            --row: #ffffff;
+            --row-hover: #f8fafc;
+            --water: #bae6fd;
+            --road: #e2e8f0;
+            --zone: #e2fbe8;
+
+            /* States & Semantics */
+            --err: #dc2626;
+            --errc: #fee2e2;
+            --warn: #d97706;
+            --warnc: #fef3c7;
+            --info: #0284c7;
+            --infoc: #e0f2fe;
+
+            /* Modern Glass & Elevation */
+            --elev-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+            --elev: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+            --elev-lg: 0 16px 36px -4px rgba(15, 23, 42, 0.1), 0 6px 12px -2px rgba(15, 23, 42, 0.04);
+            --elev-hover: 0 12px 28px -4px rgba(21, 128, 61, 0.14), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-full: 9999px;
+
+            color-scheme: light;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --p: #22c55e;
+                --p-rgb: 34, 197, 94;
+                --p-hover: #4ade80;
+                --on-p: #052e16;
+                --pc: #064e3b;
+                --on-pc: #86efac;
+                --lime: #34d399;
+                --on-lime: #022c22;
+
+                --s: #09110e;
+                --sc: #13221b;
+                --sch: #1b2f26;
+                --on-s: #f1f5f9;
+                --on-sv: #94a3b8;
+                --ol: #243c31;
+                --olv: #1b2f26;
+
+                --tile: #064e3b;
+                --tile-ic: #6ee7b7;
+                --card-bg: #13221b;
+                --row: #13221b;
+                --row-hover: #1c2e25;
+                --water: #0c2838;
+                --road: #1c2f26;
+                --zone: #142e22;
+
+                --err: #f87171;
+                --errc: #450a0a;
+                --warn: #fbbf24;
+                --warnc: #451a03;
+                --info: #38bdf8;
+                --infoc: #082f49;
+
+                --elev-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+                --elev: 0 6px 20px rgba(0, 0, 0, 0.35);
+                --elev-lg: 0 18px 40px rgba(0, 0, 0, 0.5);
+                --elev-hover: 0 12px 30px rgba(34, 197, 94, 0.16);
+                color-scheme: dark;
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --p: #22c55e;
+            --p-rgb: 34, 197, 94;
+            --p-hover: #4ade80;
+            --on-p: #052e16;
+            --pc: #064e3b;
+            --on-pc: #86efac;
+            --lime: #34d399;
+            --on-lime: #022c22;
+
+            --s: #09110e;
+            --sc: #13221b;
+            --sch: #1b2f26;
+            --on-s: #f1f5f9;
+            --on-sv: #94a3b8;
+            --ol: #243c31;
+            --olv: #1b2f26;
+
+            --tile: #064e3b;
+            --tile-ic: #6ee7b7;
+            --card-bg: #13221b;
+            --row: #13221b;
+            --row-hover: #1c2e25;
+            --water: #0c2838;
+            --road: #1c2f26;
+            --zone: #142e22;
+
+            --err: #f87171;
+            --errc: #450a0a;
+            --warn: #fbbf24;
+            --warnc: #451a03;
+            --info: #38bdf8;
+            --infoc: #082f49;
+
+            --elev-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+            --elev: 0 6px 20px rgba(0, 0, 0, 0.35);
+            --elev-lg: 0 18px 40px rgba(0, 0, 0, 0.5);
+            --elev-hover: 0 12px 30px rgba(34, 197, 94, 0.16);
+            color-scheme: dark;
+        }
+
+        /* ==========================================================================
+   Base & Typography
+   ========================================================================== */
+        html {
+            scroll-padding-top: env(safe-area-inset-top, 0px);
+            height: 100%;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100%;
+            background: var(--s);
+            color: var(--on-s);
+            font: 400 15px/1.6 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        dl,
+        dd,
+        ul {
+            margin: 0;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--p);
+            outline-offset: 2px;
+        }
+
+        .ic {
+            flex: none;
+            display: block;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .disp {
+            font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--on-s);
+        }
+
+        .sub {
+            color: var(--on-sv);
+            font-size: 13.5px;
+            line-height: 1.4;
+        }
+
+        .grow {
+            flex: 1;
+        }
+
+        /* ==========================================================================
+   Main Layout & Animations
+   ========================================================================== */
+        main {
+            min-height: 100vh;
+            padding-bottom: 120px;
+            animation: viewFadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        @keyframes viewFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            main {
+                animation: none;
+            }
+        }
+
+        .page {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 18px 32px;
+        }
+
+        .bare main {
+            padding-bottom: 0;
+        }
+
+        .bare .bottombar,
+        .bare .rail,
+        .bare .fab {
+            display: none !important;
+        }
+
+        /* Top App Bar */
+        .appbar {
+            position: sticky;
+            top: env(safe-area-inset-top, 0px);
+            z-index: 25;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 64px;
+            padding: 0 16px;
+            background: color-mix(in srgb, var(--s) 88%, transparent);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid color-mix(in srgb, var(--ol) 60%, transparent);
+        }
+
+        .appbar.nb {
+            padding-left: 20px;
+        }
+
+        .appbar h1 {
+            font-size: 20px;
+            line-height: 1.25;
+            font-weight: 700;
+        }
+
+        .icbtn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid transparent;
+            background: transparent;
+            display: grid;
+            place-items: center;
+            color: var(--on-sv);
+            transition: all 0.18s ease;
+        }
+
+        .icbtn:hover {
+            background: var(--sch);
+            color: var(--on-s);
+            border-color: var(--ol);
+        }
+
+        .icbtn:active {
+            transform: scale(0.94);
+        }
+
+        .fav.on {
+            color: var(--err);
+        }
+
+        /* Bottom Navigation (Mobile) */
+        .bottombar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 30;
+            display: flex;
+            background: color-mix(in srgb, var(--sc) 92%, transparent);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 8px 10px calc(12px + env(safe-area-inset-bottom, 0px));
+            border-top: 1px solid var(--ol);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .navi {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--on-sv);
+            transition: color 0.15s ease;
+            padding: 4px 0;
+        }
+
+        .navi .pill {
+            width: 54px;
+            height: 32px;
+            border-radius: var(--radius-full);
+            display: grid;
+            place-items: center;
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .navi.on {
+            color: var(--p);
+        }
+
+        .navi.on .pill {
+            background: var(--pc);
+            color: var(--on-pc);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(var(--p-rgb), 0.18);
+        }
+
+        /* Rail Navigation (Desktop) */
+        .rail {
+            display: none;
+        }
+
+        .fab {
+            position: fixed;
+            right: 20px;
+            bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+            z-index: 25;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            height: 52px;
+            padding: 0 22px 0 18px;
+            border-radius: var(--radius-full);
+            background: linear-gradient(135deg, var(--lime), var(--p));
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 14.5px;
+            box-shadow: 0 8px 24px rgba(var(--p-rgb), 0.35);
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .fab:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(var(--p-rgb), 0.45);
+        }
+
+        .fab:active {
+            transform: scale(0.97);
+        }
+
+        @media (min-width: 860px) {
+            .bottombar {
+                display: none;
+            }
+
+            .rail {
+                position: fixed;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 92px;
+                z-index: 30;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                padding: calc(20px + env(safe-area-inset-top, 0px)) 0 20px;
+                background: var(--sc);
+                border-right: 1px solid var(--ol);
+            }
+
+            .rail .navi {
+                flex: none;
+                width: 78px;
+                padding: 6px 0;
+                border-radius: var(--radius-md);
+            }
+
+            .rail .navi:hover {
+                color: var(--on-s);
+                background: var(--sch);
+            }
+
+            .rail .logo {
+                color: var(--p);
+                margin-bottom: 12px;
+                cursor: pointer;
+                transition: transform 0.25s ease;
+            }
+
+            .rail .logo:hover {
+                transform: rotate(20deg);
+            }
+
+            main {
+                margin-left: 92px;
+                padding-bottom: 48px;
+            }
+
+            .bare main {
+                margin-left: 0;
+            }
+
+            .fab {
+                bottom: 32px;
+                right: 32px;
+            }
+
+            .page {
+                padding: 0 36px 40px;
+            }
+        }
+
+        /* ==========================================================================
+   Buttons & Interactive Elements
+   ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            height: 46px;
+            padding: 0 22px;
+            border-radius: var(--radius-full);
+            border: 1px solid transparent;
+            font-weight: 600;
+            font-size: 14.5px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .btn.fill {
+            background: var(--p);
+            color: var(--on-p);
+            box-shadow: 0 2px 8px rgba(var(--p-rgb), 0.25);
+        }
+
+        .btn.fill:hover {
+            background: var(--p-hover);
+            box-shadow: 0 6px 16px rgba(var(--p-rgb), 0.35);
+            transform: translateY(-1px);
+        }
+
+        .btn.tonal {
+            background: var(--pc);
+            color: var(--on-pc);
+        }
+
+        .btn.tonal:hover {
+            background: color-mix(in srgb, var(--pc) 85%, var(--p));
+            transform: translateY(-1px);
+        }
+
+        .btn.outline {
+            background: transparent;
+            border-color: var(--ol);
+            color: var(--on-s);
+        }
+
+        .btn.outline:hover {
+            border-color: var(--p);
+            color: var(--p);
+            background: color-mix(in srgb, var(--pc) 40%, transparent);
+        }
+
+        .btn.text {
+            background: transparent;
+            color: var(--p);
+            padding: 0 14px;
+        }
+
+        .btn.text:hover {
+            background: var(--sch);
+        }
+
+        .btn.block {
+            width: 100%;
+        }
+
+        .btn.danger {
+            color: var(--err);
+            border-color: var(--err);
+        }
+
+        .btn.danger:hover {
+            background: var(--errc);
+        }
+
+        .btn:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        /* Form Fields & Inputs */
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: 52px;
+            padding: 0 18px;
+            border-radius: var(--radius-full);
+            background: var(--sc);
+            border: 1px solid var(--ol);
+            color: var(--on-sv);
+            box-shadow: var(--elev-sm);
+            transition: all 0.2s ease;
+        }
+
+        .search:focus-within {
+            border-color: var(--p);
+            box-shadow: 0 0 0 3px rgba(var(--p-rgb), 0.15);
+            color: var(--p);
+        }
+
+        .search input {
+            flex: 1;
+            min-width: 0;
+            border: 0;
+            background: transparent;
+            outline: 0;
+            color: var(--on-s);
+            font-size: 14.5px;
+        }
+
+        .search input::placeholder {
+            color: var(--on-sv);
+        }
+
+        .fld {
+            display: block;
+            margin-bottom: 18px;
+        }
+
+        .fld>span {
+            display: block;
+            font-size: 13.5px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--on-s);
+        }
+
+        .fld input,
+        .fld select,
+        .fld textarea {
+            width: 100%;
+            height: 48px;
+            padding: 0 16px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--ol);
+            background: var(--sc);
+            color: var(--on-s);
+            outline: 0;
+            font-size: 14.5px;
+            transition: all 0.2s ease;
+        }
+
+        .fld textarea {
+            height: 100px;
+            padding: 12px 16px;
+            resize: vertical;
+        }
+
+        .fld input:focus,
+        .fld select:focus,
+        .fld textarea:focus {
+            border-color: var(--p);
+            box-shadow: 0 0 0 3px rgba(var(--p-rgb), 0.15);
+        }
+
+        .fld select option {
+            background: var(--sc);
+            color: var(--on-s);
+        }
+
+        .fld small {
+            display: block;
+            margin-top: 5px;
+            color: var(--on-sv);
+            font-size: 12.5px;
+        }
+
+        .err {
+            color: var(--err);
+            font-size: 13px;
+            margin: 6px 0 12px;
+            min-height: 18px;
+            font-weight: 500;
+        }
+
+        .chk {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            font-size: 13.5px;
+            color: var(--on-sv);
+            cursor: pointer;
+            margin: 16px 0;
+            line-height: 1.45;
+        }
+
+        .chk input {
+            margin-top: 3px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--p);
+            flex: none;
+        }
+
+        /* Range input styling */
+        input[type=range] {
+            width: 100%;
+            accent-color: var(--p);
+            height: 28px;
+            cursor: pointer;
+        }
+
+        /* Chips & Segmented Controls */
+        .chips {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 12px 0;
+            scrollbar-width: none;
+        }
+
+        .chips::-webkit-scrollbar {
+            display: none;
+        }
+
+        .chip {
+            flex: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            height: 36px;
+            padding: 0 14px;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--ol);
+            background: var(--sc);
+            color: var(--on-sv);
+            font-size: 13.5px;
+            font-weight: 600;
+            transition: all 0.18s ease;
+        }
+
+        .chip:hover {
+            background: var(--sch);
+            color: var(--on-s);
+            border-color: var(--olv);
+        }
+
+        .chip.on {
+            background: var(--pc);
+            color: var(--on-pc);
+            border-color: rgba(var(--p-rgb), 0.25);
+            box-shadow: 0 2px 6px rgba(var(--p-rgb), 0.12);
+        }
+
+        .seg {
+            display: flex;
+            background: var(--sch);
+            border: 1px solid var(--ol);
+            border-radius: var(--radius-full);
+            padding: 4px;
+            gap: 4px;
+        }
+
+        .seg button {
+            flex: 1;
+            height: 38px;
+            border-radius: var(--radius-full);
+            border: 0;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--on-sv);
+            transition: all 0.2s ease;
+        }
+
+        .seg button:hover {
+            color: var(--on-s);
+        }
+
+        .seg button.on {
+            background: var(--sc);
+            color: var(--on-s);
+            box-shadow: var(--elev-sm);
+        }
+
+        /* ==========================================================================
+   Card System & Component Styles
+   ========================================================================== */
+        .card {
+            background: var(--sc);
+            border: 1px solid var(--ol);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--elev);
+            transition: all 0.2s ease;
+        }
+
+        .card.pc {
+            background: linear-gradient(135deg, color-mix(in srgb, var(--pc) 40%, var(--sc)), var(--sc));
+            border-color: color-mix(in srgb, var(--p) 25%, var(--ol));
+        }
+
+        .sec {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin: 28px 0 14px;
+        }
+
+        .sec h2 {
+            font-size: 18px;
+        }
+
+        .sec a {
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--p);
+        }
+
+        .sec a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            height: 24px;
+            padding: 0 10px;
+            border-radius: var(--radius-full);
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            background: var(--pc);
+            color: var(--on-pc);
+        }
+
+        .badge.warn {
+            background: var(--warnc);
+            color: var(--warn);
+        }
+
+        .badge.info {
+            background: var(--infoc);
+            color: var(--info);
+        }
+
+        /* Material Image & Tile Component */
+        .tile {
+            position: relative;
+            overflow: hidden;
+            background: var(--tile);
+            color: var(--tile-ic);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+        }
+
+        .tile img.tile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .tile .tile-fallback {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--tile), color-mix(in srgb, var(--tile) 70%, #000));
+        }
+
+        .tile .tile-fallback.hide,
+        .tile img.hide {
+            display: none !important;
+        }
+
+        .tile svg {
+            width: 50%;
+            height: 50%;
+            opacity: 0.9;
+        }
+
+        .tile.sm {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            flex: none;
+        }
+
+        .tile.sm svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Catalog Card (Grid) */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .lcard {
+            position: relative;
+            background: var(--sc);
+            border: 1px solid var(--ol);
+            border-radius: var(--radius-lg);
+            padding: 10px;
+            box-shadow: var(--elev-sm);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .lcard:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--elev-hover);
+            border-color: color-mix(in srgb, var(--p) 35%, var(--ol));
+        }
+
+        .lcard:hover .tile img.tile-img {
+            transform: scale(1.05);
+        }
+
+        .lc-img {
+            position: relative;
+            border-radius: calc(var(--radius-lg) - 6px);
+            overflow: hidden;
+        }
+
+        .lc-img .tile {
+            aspect-ratio: 4/3;
+            width: 100%;
+            border-radius: calc(var(--radius-lg) - 6px);
+        }
+
+        .lc-img .fav {
+            position: absolute;
+            right: 6px;
+            top: 6px;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            color: #475569;
+            border-radius: 50%;
+            z-index: 3;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        .lc-img .fav:hover {
+            transform: scale(1.1);
+        }
+
+        .lc-img .fav.on {
+            color: var(--err);
+        }
+
+        .lc-img .gr {
+            position: absolute;
+            left: 8px;
+            bottom: 8px;
+            height: 24px;
+            padding: 0 8px;
+            border-radius: 6px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            letter-spacing: 0.03em;
+        }
+
+        .lc-b {
+            padding: 12px 6px 6px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .lc-b h3 {
+            font-size: 15px;
+            line-height: 1.35;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            min-height: 2.7em;
+            margin-bottom: 6px;
+        }
+
+        .lc-b .pr {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--p);
+            margin-bottom: 8px;
+        }
+
+        .lc-b .pr small {
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--on-sv);
+        }
+
+        .meta {
+            display: flex;
+            gap: 12px;
+            font-size: 12.5px;
+            color: var(--on-sv);
+            margin-top: auto;
+        }
+
+        .meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* List Row Item */
+        .row {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--row);
+            border: 1px solid var(--ol);
+            border-radius: var(--radius-md);
+            padding: 12px 14px;
+            margin-bottom: 10px;
+            box-shadow: var(--elev-sm);
+            transition: all 0.2s ease;
+        }
+
+        .row:hover {
+            background: var(--sch);
+            border-color: color-mix(in srgb, var(--p) 35%, var(--ol));
+            transform: translateX(3px);
+        }
+
+        .row .tile {
+            width: 58px;
+            height: 58px;
+            border-radius: 12px;
+            flex: none;
+        }
+
+        .rowb {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .rowb h3 {
+            font-size: 15px;
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .rowp {
+            text-align: right;
+            flex: none;
+        }
+
+        .rowp strong {
+            display: block;
+            font-size: 15.5px;
+            font-weight: 800;
+            color: var(--p);
+        }
+
+        .rowp small {
+            font-size: 12px;
+            color: var(--on-sv);
+        }
+
+        .stretch {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        /* Home Screen Enhancements */
+        .hello {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 4px 14px;
+        }
+
+        .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--lime), var(--p));
+            color: #ffffff;
+            display: grid;
+            place-items: center;
+            font: 700 17px 'Outfit', sans-serif;
+            flex: none;
+            box-shadow: 0 4px 12px rgba(var(--p-rgb), 0.25);
+        }
+
+        .hello h1 {
+            font-size: 21px;
+            line-height: 1.25;
+        }
+
+        .quick {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .quick a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: center;
+            color: var(--on-s);
+            transition: transform 0.2s ease;
+        }
+
+        .quick a:hover {
+            transform: translateY(-2px);
+            color: var(--p);
+        }
+
+        .quick .c {
+            width: 58px;
+            height: 58px;
+            border-radius: 20px;
+            background: var(--sc);
+            border: 1px solid var(--ol);
+            color: var(--p);
+            display: grid;
+            place-items: center;
+            box-shadow: var(--elev-sm);
+            transition: all 0.2s ease;
+        }
+
+        .quick a:hover .c {
+            background: var(--pc);
+            border-color: color-mix(in srgb, var(--p) 30%, transparent);
+            box-shadow: 0 8px 18px rgba(var(--p-rgb), 0.18);
+        }
+
+        .carousel {
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            margin: 0 -18px;
+            padding: 6px 18px 14px;
+            scrollbar-width: none;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .hcard {
+            position: relative;
+            flex: none;
+            width: min(80%, 300px);
+            scroll-snap-align: start;
+            background: var(--sc);
+            border: 1px solid var(--ol);
+            border-radius: var(--radius-lg);
+            padding: 10px;
+            box-shadow: var(--elev);
+            transition: all 0.22s ease;
+        }
+
+        .hcard:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--elev-hover);
+            border-color: color-mix(in srgb, var(--p) 35%, var(--ol));
+        }
+
+        .hcard .tile {
+            aspect-ratio: 16/11;
+            border-radius: calc(var(--radius-lg) - 6px);
+        }
+
+        .hcard h3 {
+            font-size: 16px;
+            line-height: 1.35;
+            margin: 12px 6px 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .hcard .pr {
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--p);
+            margin: 0 6px 8px;
+        }
+
+        .hcard .meta {
+            margin: 0 6px 6px;
+        }
+
+        .stat3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .stat3 div {
+            background: var(--sc);
+            border: 1px solid var(--ol);
+            border-radius: var(--radius-md);
+            padding: 14px 8px;
+            text-align: center;
+        }
+
+        .stat3 b {
+            display: block;
+            font: 800 20px 'Outfit', sans-serif;
+            color: var(--p);
+        }
+
+        .stat3 small {
+            font-size: 12px;
+            color: var(--on-sv);
+            font-weight: 500;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 4px;
+            border-bottom: 1px solid var(--ol);
+        }
+
+        .price-row:last-child {
+            border-bottom: 0;
+        }
+
+        .up {
+            color: var(--p);
+            font-weight: 600;
+        }
+
+        .down {
+            color: var(--err);
+            font-weight: 600;
+        }
+
+        .cta {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            background: linear-gradient(135deg, var(--pc), color-mix(in srgb, var(--lime) 25%, var(--pc)));
+            color: var(--on-pc);
+            border: 1px solid color-mix(in srgb, var(--p) 20%, transparent);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            margin-top: 32px;
+            box-shadow: var(--elev);
+            transition: transform 0.2s ease;
+        }
+
+        .cta:hover {
+            transform: translateY(-2px);
+        }
+
+        .cta h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+            color: var(--on-pc);
+        }
+
+        /* ==========================================================================
+   Splash, Onboarding, Auth
+   ========================================================================== */
+        .splash {
+            min-height: 100vh;
+            min-height: 100svh;
+            background: radial-gradient(circle at 50% 20%, #15803d, #064e3b 80%);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 48px 24px calc(40px + env(safe-area-inset-bottom, 0px));
+        }
+
+        .sp-mid {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 12px;
+            max-width: 480px;
+        }
+
+        .sp-mid .badge-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 6px 14px;
+            border-radius: var(--radius-full);
+            font-size: 12.5px;
+            font-weight: 600;
+            color: #bbf7d0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sp-mid h1 {
+            font-size: 54px;
+            line-height: 1;
+            color: #ffffff;
+            margin-top: 4px;
+        }
+
+        .sp-mid p {
+            font-size: 18px;
+            max-width: 26ch;
+            opacity: 0.9;
+            line-height: 1.45;
+        }
+
+        .sp-btm {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: min(380px, 100%);
+            align-items: stretch;
+        }
+
+        .sp-btm .btn.fill {
+            background: #ffffff;
+            color: #14532d;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .sp-btm .btn.fill:hover {
+            background: #f0fdf4;
+        }
+
+        .sp-btm .btn.outline {
+            border-color: rgba(255, 255, 255, 0.4);
+            color: #ffffff;
+        }
+
+        .sp-btm .btn.outline:hover {
+            border-color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .sp-btm .btn.text {
+            color: #bbf7d0;
+        }
+
+        .splash .logo {
+            animation: spin 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(-220deg) scale(0.6);
+                opacity: 0;
+            }
+
+            to {
+                transform: none;
+                opacity: 1;
+            }
+        }
+
+        .narrow {
+            width: min(440px, 100%);
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        .auth h1 {
+            font-size: 28px;
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+
+        .ob {
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 36px 24px calc(32px + env(safe-area-inset-bottom, 0px));
+        }
+
+        .ob .head {
+            width: min(440px, 100%);
+            text-align: center;
+        }
+
+        .ob h1 {
+            font-size: 26px;
+            line-height: 1.25;
+            margin: 16px 0 8px;
+        }
+
+        .ob .art {
+            width: min(320px, 80%);
+            margin: 24px auto;
+        }
+
+        .ob .art .tile {
+            aspect-ratio: 4/3;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--elev-lg);
+        }
+
+        .ob .art .tile img.tile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ob .foot {
+            width: min(440px, 100%);
+            margin-top: auto;
+        }
+
+        .dots {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin: 18px 0;
+        }
+
+        .dots i {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--olv);
+            transition: all 0.25s ease;
+        }
+
+        .dots i.on {
+            background: var(--p);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        /* ==========================================================================
+   Detail Listing Page
+   ========================================================================== */
+        .detail {
+            display: grid;
+            gap: 24px;
+        }
+
+        .d-img .tile {
+            aspect-ratio: 4/3;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--elev);
+            overflow: hidden;
+        }
+
+        .d-img .tile img.tile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .d-info h2 {
+            font-size: 26px;
+            line-height: 1.25;
+            margin: 10px 0 6px;
+        }
+
+        .price {
+            font: 800 28px 'Outfit', sans-serif;
+            color: var(--p);
+            margin-bottom: 12px;
+        }
+
+        .price small {
+            font: 500 15px 'Plus Jakarta Sans', sans-serif;
+            color: var(--on-sv);
+        }
+
+        .lead {
+            margin: 12px 0 18px;
+            color: var(--on-sv);
+            line-height: 1.6;
+        }
+
+        .specs {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 12px 16px;
+            margin: 18px 0;
+            font-size: 14.5px;
+            background: var(--sc);
+            border: 1px solid var(--ol);
+            border-radius: var(--radius-md);
+            padding: 16px;
+        }
+
+        .specs dt {
+            color: var(--on-sv);
+        }
+
+        .specs dd {
+            font-weight: 600;
+            text-align: right;
+            color: var(--on-s);
+        }
+
+        .two {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 18px 0;
+        }
+
+        .two .card b {
+            display: block;
+            font: 800 20px 'Outfit', sans-serif;
+            color: var(--p);
+            margin-bottom: 4px;
+        }
+
+        .two .card small {
+            color: var(--on-sv);
+            font-size: 12px;
+        }
+
+        .seller {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            margin: 18px 0;
+        }
+
+        .seller .avatar {
+            width: 48px;
+            height: 48px;
+        }
+
+        .acts {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 16px;
+        }
+
+        .acts .btn {
+            flex: 1;
+            min-width: 140px;
+        }
+
+        @media (min-width: 860px) {
+            .detail {
+                grid-template-columns: 1.1fr 1fr;
+                align-items: start;
+                gap: 36px;
+            }
+
+            .d-img {
+                position: sticky;
+                top: 84px;
+            }
+        }
+
+        /* ==========================================================================
+   Interactive Map System
+   ========================================================================== */
+        .peta {
+            display: grid;
+            gap: 0;
+        }
+
+        .mapbox {
+            position: relative;
+            height: 46vh;
+            min-height: 330px;
+            border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+            overflow: hidden;
+            background: var(--sc);
+            border: 1px solid var(--ol);
+            box-shadow: var(--elev);
+        }
+
+        .mapsvg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .me {
+            position: absolute;
+            left: 50%;
+            top: 55%;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--lime);
+            border: 3px solid #ffffff;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.4);
+            z-index: 3;
+        }
+
+        .me::before {
+            content: "";
+            position: absolute;
+            inset: -8px;
+            border-radius: 50%;
+            background: var(--lime);
+            animation: pulseRadar 2s infinite ease-out;
+            z-index: -1;
+        }
+
+        @keyframes pulseRadar {
+            0% {
+                transform: scale(0.8);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(2.6);
+                opacity: 0;
+            }
+        }
+
+        .me-l {
+            position: absolute;
+            left: 50%;
+            top: 55%;
+            transform: translate(-50%, 16px);
+            font-size: 11px;
+            font-weight: 700;
+            background: var(--sc);
+            color: var(--on-s);
+            padding: 2px 8px;
+            border-radius: 6px;
+            box-shadow: var(--elev-sm);
+            white-space: nowrap;
+            z-index: 3;
+            border: 1px solid var(--ol);
+        }
+
+        .pin {
+            position: absolute;
+            transform: translate(-50%, -100%);
+            border: 0;
+            background: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            cursor: pointer;
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .pin:hover {
+            transform: translate(-50%, -108%) scale(1.1);
+            z-index: 5;
+        }
+
+        .pin .pb {
+            width: 38px;
+            height: 38px;
+            border-radius: 50% 50% 50% 6px;
+            transform: rotate(-45deg);
+            background: var(--p);
+            color: #ffffff;
+            display: grid;
+            place-items: center;
+            box-shadow: var(--elev);
+            border: 2px solid #ffffff;
+        }
+
+        .pin .pb svg {
+            transform: rotate(45deg);
+            width: 20px;
+            height: 20px;
+        }
+
+        .pin.on {
+            z-index: 5;
+            transform: translate(-50%, -105%) scale(1.15);
+        }
+
+        .pin.on .pb {
+            background: #0f172a;
+            color: #38bdf8;
+            width: 44px;
+            height: 44px;
+            border-color: #38bdf8;
+        }
+
+        .pin .lab {
+            position: absolute;
+            bottom: 100%;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            background: var(--sc);
+            color: var(--on-s);
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 700;
+            box-shadow: var(--elev);
+            border: 1px solid var(--ol);
+        }
+
+        .mapchips {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            padding: 10px 16px 0;
+            z-index: 5;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent);
+        }
+
+        .mapchips .chip {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            color: #0f172a;
+            border-color: transparent;
+        }
+
+        .mapchips .chip.on {
+            background: var(--p);
+            color: #ffffff;
+        }
+
+        .sheet {
+            padding: 18px 0;
+        }
+
+        .sheet .modes {
+            margin-bottom: 16px;
+        }
+
+        .match {
+            position: relative;
+            background: var(--sc);
+            border: 1px solid var(--ol);
+            border-radius: var(--radius-md);
+            padding: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 14px;
+            box-shadow: var(--elev-sm);
+            transition: all 0.2s ease;
+        }
+
+        .match:hover {
+            border-color: var(--p);
+            box-shadow: var(--elev);
+        }
+
+        .match.sel {
+            border-color: var(--p);
+            background: color-mix(in srgb, var(--pc) 25%, var(--sc));
+            box-shadow: 0 0 0 2px var(--p);
+        }
+
+        .match .tile {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            flex: none;
+        }
+
+        .match h3 {
+            font-size: 15.5px;
+            line-height: 1.3;
+        }
+
+        .score {
+            margin-left: auto;
+            flex: none;
+            align-self: flex-start;
+            height: 26px;
+            padding: 0 10px;
+            border-radius: var(--radius-full);
+            background: var(--pc);
+            color: var(--on-pc);
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .match .btn {
+            height: 36px;
+            font-size: 13.5px;
+            padding: 0 16px;
+            margin-top: 8px;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (min-width: 860px) {
+            .peta {
+                grid-template-columns: 1.25fr 1fr;
+                gap: 28px;
+                padding: 0 24px;
+            }
+
+            .mapbox {
+                height: calc(100vh - 100px);
+                border-radius: var(--radius-lg);
+                position: sticky;
+                top: 16px;
+                margin-top: 16px;
+            }
+
+            .sheet {
+                padding: 16px 0;
+            }
+        }
+
+        /* ==========================================================================
+   Carbon & Financial Calculator
+   ========================================================================== */
+        .circs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .circ {
+            background: linear-gradient(135deg, var(--pc), color-mix(in srgb, var(--lime) 20%, var(--pc)));
+            color: var(--on-pc);
+            border: 1px solid color-mix(in srgb, var(--p) 25%, transparent);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 18px 8px;
+            box-shadow: var(--elev-sm);
+        }
+
+        .circ b {
+            font: 800 clamp(18px, 4vw, 26px)/1.1 'Outfit', sans-serif;
+            color: var(--on-pc);
+        }
+
+        .circ small {
+            font-size: clamp(11px, 2.5vw, 13px);
+            line-height: 1.25;
+            margin-top: 4px;
+            opacity: 0.85;
+        }
+
+        .kv {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--ol);
+            font-size: 14.5px;
+        }
+
+        .kv:last-child {
+            border: 0;
+        }
+
+        .kv b {
+            font-weight: 700;
+            text-align: right;
+            color: var(--on-s);
+        }
+
+        .note {
+            font-size: 13px;
+            color: var(--on-sv);
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            margin-top: 14px;
+            line-height: 1.45;
+        }
+
+        @media (min-width: 860px) {
+            .calcgrid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+                align-items: start;
+            }
+        }
+
+        /* ==========================================================================
+   Timeline & Transactions
+   ========================================================================== */
+        .steps {
+            position: relative;
+            margin: 16px 0;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            position: relative;
+            padding-bottom: 22px;
+        }
+
+        .step:not(:last-child)::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 32px;
+            bottom: 0;
+            width: 2px;
+            background: var(--ol);
+        }
+
+        .step.done:not(:last-child)::before {
+            background: var(--p);
+        }
+
+        .dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid var(--ol);
+            display: grid;
+            place-items: center;
+            flex: none;
+            background: var(--sc);
+            color: var(--on-sv);
+            font-size: 13px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .step.done .dot {
+            background: var(--p);
+            border-color: var(--p);
+            color: var(--on-p);
+        }
+
+        .step.cur .dot {
+            border-color: var(--p);
+            color: var(--p);
+            box-shadow: 0 0 0 4px rgba(var(--p-rgb), 0.15);
+        }
+
+        .step .t {
+            padding-top: 4px;
+        }
+
+        .step.todo .t {
+            color: var(--on-sv);
+        }
+
+        .success {
+            text-align: center;
+            padding: 28px 12px;
+        }
+
+        .thumb {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            border: 3px solid var(--p);
+            color: var(--p);
+            background: var(--pc);
+            display: grid;
+            place-items: center;
+            margin: 0 auto 16px;
+            box-shadow: 0 8px 24px rgba(var(--p-rgb), 0.2);
+        }
+
+        /* ==========================================================================
+   Sustainability Certificate
+   ========================================================================== */
+        .cert {
+            background: var(--sc);
+            border: 2px solid var(--p);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--elev-lg);
+        }
+
+        .cert::before {
+            content: "";
+            position: absolute;
+            inset: 8px;
+            border: 1px dashed color-mix(in srgb, var(--p) 50%, transparent);
+            border-radius: calc(var(--radius-lg) - 6px);
+            pointer-events: none;
+        }
+
+        .cert h2 {
+            font-size: 24px;
+            text-align: center;
+            margin: 14px 0 4px;
+        }
+
+        .cert .no {
+            text-align: center;
+            color: var(--on-sv);
+            font-size: 13.5px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .cert .who {
+            text-align: center;
+            margin: 14px 0;
+        }
+
+        .cert .who b {
+            font: 700 20px 'Outfit', sans-serif;
+            display: block;
+            color: var(--on-s);
+        }
+
+        .cert .qr {
+            width: 84px;
+            height: 84px;
+            color: var(--on-s);
+            flex: none;
+        }
+
+        .cert .foot {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 20px;
+            font-size: 12.5px;
+            color: var(--on-sv);
+        }
+
+        .demo-tag {
+            position: absolute;
+            right: -34px;
+            top: 18px;
+            transform: rotate(35deg);
+            background: var(--warnc);
+            color: var(--warn);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 40px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* ==========================================================================
+   Profile & About
+   ========================================================================== */
+        .prof {
+            text-align: center;
+            padding: 12px 0 16px;
+        }
+
+        .prof .big {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--lime), var(--p));
+            color: #ffffff;
+            display: grid;
+            place-items: center;
+            margin: 8px auto 14px;
+            font: 800 34px 'Outfit', sans-serif;
+            box-shadow: 0 8px 24px rgba(var(--p-rgb), 0.25);
+        }
+
+        .prof h2 {
+            font-size: 22px;
+        }
+
+        .bars .b {
+            display: grid;
+            grid-template-columns: 100px 1fr auto;
+            gap: 12px;
+            align-items: center;
+            margin: 12px 0;
+            font-size: 13.5px;
+        }
+
+        .bars .track {
+            height: 12px;
+            border-radius: 6px;
+            background: var(--sch);
+            overflow: hidden;
+        }
+
+        .bars .fillb {
+            height: 100%;
+            background: linear-gradient(90deg, var(--lime), var(--p));
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+
+        .menu a,
+        .menu button {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            width: 100%;
+            min-height: 54px;
+            padding: 0 18px;
+            border: 1px solid var(--ol);
+            background: var(--sc);
+            border-radius: var(--radius-md);
+            margin-bottom: 10px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--on-s);
+            box-shadow: var(--elev-sm);
+            transition: all 0.18s ease;
+        }
+
+        .menu a:hover,
+        .menu button:hover {
+            background: var(--sch);
+            border-color: var(--p);
+            transform: translateX(3px);
+        }
+
+        .menu a span,
+        .menu button span {
+            flex: 1;
+        }
+
+        /* Dialog & Snackbar */
+        .snack {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            bottom: calc(108px + env(safe-area-inset-bottom, 0px));
+            z-index: 60;
+            background: #0f172a;
+            color: #f8fafc;
+            padding: 12px 22px;
+            border-radius: var(--radius-full);
+            font-size: 14px;
+            font-weight: 500;
+            max-width: min(92vw, 420px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .snack.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (min-width: 860px) {
+            .snack {
+                bottom: 32px;
+                margin-left: 46px;
+            }
+        }
+
+        dialog {
+            border: 1px solid var(--ol);
+            border-radius: var(--radius-lg);
+            padding: 26px;
+            background: var(--sc);
+            color: var(--on-s);
+            width: min(460px, calc(100vw - 32px));
+            max-height: 90vh;
+            box-shadow: var(--elev-lg);
+        }
+
+        dialog::backdrop {
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        dialog h2 {
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .dact {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .empty {
+            text-align: center;
+            padding: 56px 16px;
+            color: var(--on-sv);
+        }
+
+        .empty h3 {
+            color: var(--on-s);
+            margin-bottom: 8px;
+        }
+
+        .empty .btn {
+            margin-top: 18px;
+        }
+
+        .about h3 {
+            font-size: 18px;
+            margin: 26px 0 8px;
+        }
+
+        .about p {
+            color: var(--on-sv);
+            line-height: 1.6;
+        }
+
+        .about .chips {
+            flex-wrap: wrap;
+            overflow: visible;
+        }
+
+        @media print {
+
+            .bottombar,
+            .rail,
+            .appbar,
+            .fab,
+            .acts {
+                display: none !important;
+            }
+
+            main {
+                margin: 0;
+                padding: 0;
+            }
+
+            .cert {
+                box-shadow: none;
+                border-color: #000;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <nav class="rail" id="rail" aria-label="Navigasi utama"></nav>
+        <main id="main" tabindex="-1"></main>
+        <nav class="bottombar" id="bottom" aria-label="Navigasi utama"></nav>
+    </div>
+    <dialog id="dlg"></dialog>
+    <div class="snack" id="snack" role="status" aria-live="polite"></div>
+    <noscript>Circula membutuhkan JavaScript untuk berjalan.</noscript>
+
+    <script>
+        (function () {
+            'use strict';
+            var $ = function (s, r) { return (r || document).querySelector(s) };
+            var main = $('#main'), dlg = $('#dlg');
+            var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] }) };
+            var num = function (n, d) { return Number(n).toLocaleString('id-ID', { maximumFractionDigits: d || 0 }) };
+            var rp = function (n) { return 'Rp ' + num(Math.round(n)) };
+            var kgf = function (n) { return n >= 1000 ? num(n / 1000, 1) + ' ton' : num(n) + ' kg' };
+            var co2f = function (n) { return n >= 1000 ? num(n / 1000, 2) + ' ton' : num(n) + ' kg' };
+
+            /* ---------- icons ---------- */
+            var ICON = {
+                home: '<path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>',
+                grid: '<path d="M3 3h8v8H3zm10 0h8v8h-8zM3 13h8v8H3zm10 0h8v8h-8z"/>',
+                list: '<path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>',
+                map: '<path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/>',
+                calc: '<path fill-rule="evenodd" d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm1 3v3h12V6zm1 6v2h2v-2zm4 0v2h2v-2zm4 0v2h2v-2zm-8 4v2h2v-2zm4 0v2h2v-2zm4 0v2h2v-2z"/>',
+                person: '<path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>',
+                add: '<path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>',
+                back: '<path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>',
+                chev: '<path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>',
+                pin: '<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/>',
+                heart: '<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>',
+                check: '<path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>',
+                search: '<path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>',
+                close: '<path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>',
+                star: '<path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>',
+                leaf: '<path d="M20 4C11 4 4 9 4 16c0 1.5.4 2.9 1.1 4l1.7-1.2C6.3 18 6 17 6 16c0-3.6 3-7 8-8-4 2-6 5-6.5 8 3 0 6-1 8-3.5C17.5 12 19 8 20 4z"/>',
+                cert: '<path fill-rule="evenodd" d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm8 1.5V8h4.5zM8 13v2h8v-2zm0 4v2h5v-2z"/>',
+                shield: '<path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>',
+                truck: '<path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9 1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>',
+                swap: '<path d="M6.99 11 3 15l3.99 4v-3H14v-2H6.99v-3zM21 9l-3.99-4v3H10v2h7.01v3L21 9z"/>',
+                store: '<path d="M20 4H4v2h16V4zm1 10v-2l-1-5H4l-1 5v2h1v6h10v-6h4v6h2v-6h1zm-9 4H6v-4h6v4z"/>',
+                up: '<path d="M7 14l5-5 5 5z"/>', down: '<path d="M7 10l5 5 5-5z"/>',
+                copy: '<path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>',
+                logout: '<path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>',
+                info: '<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>',
+                moon: '<path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>',
+                box: '<path d="M21 8l-9-5-9 5v8l9 5 9-5V8zm-9-2.7L17.7 8.4 12 11.5 6.3 8.4 12 5.3zM5 9.9l6 3.3v6.5l-6-3.3V9.9zm8 9.8v-6.5l6-3.3v6.5l-6 3.3z"/>',
+                money: '<path d="M19 14V6c0-1.1-.9-2-2-2H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zm-9-1c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm13-6v11c0 1.1-.9 2-2 2H4v-2h17V7h2z"/>',
+                thumb: '<path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/>'
+            };
+            function ic(n, s) { s = s || 24; return '<svg class="ic" width="' + s + '" height="' + s + '" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' + (ICON[n] || '') + '</svg>' }
+            function logo(s) { return '<svg class="logo" width="' + s + '" height="' + s + '" viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-dasharray="56 82.2" transform="rotate(-110 32 32)"/><circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-dasharray="56 82.2" opacity=".5" transform="rotate(70 32 32)"/><path d="M32 23c7 2 9 10 3 16-7-1-11-8-3-16z" fill="currentColor"/></svg>' }
+
+            var ART = {
+                kayu: '<circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="1.6"/>',
+                logam: '<path fill-rule="evenodd" d="M12 2l8.66 5v10L12 22l-8.66-5V7zM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z"/>',
+                plastik: '<path d="M10 2h4v3l2 3v12a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V8l2-3z"/>',
+                tekstil: '<path d="M3 6c3-2 6 2 9 0s6 2 9 0v12c-3 2-6-2-9 0s-6-2-9 0z"/>',
+                kertas: '<rect x="5" y="3" width="14" height="4" rx="1"/><rect x="3" y="10" width="18" height="4" rx="1"/><rect x="5" y="17" width="14" height="4" rx="1"/>',
+                kaca: '<path d="M12 2l9 8-9 12L3 10z"/><path d="M3 10h18M8 10l4 12 4-12" fill="none" stroke="currentColor" stroke-width="1.2"/>',
+                minyak: '<path d="M12 2s7 7.5 7 13a7 7 0 0 1-14 0C5 9.5 12 2 12 2z"/>'
+            };
+
+            /* Component: Photo tile with high-res online image & graceful vector fallback */
+            function tile(mat, photo, cls) {
+                var src = photo || (MAT[mat] && MAT[mat].img) || '';
+                var artSvg = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' + (ART[mat] || '') + '</svg>';
+                if (src) {
+                    return '<div class="tile ' + (cls || '') + '">' +
+                        '<img class="tile-img" alt="" src="' + src + '" loading="lazy" onerror="this.classList.add(\'hide\');this.nextElementSibling.classList.remove(\'hide\');">' +
+                        '<div class="tile-fallback hide">' + artSvg + '</div>' +
+                        '</div>';
+                }
+                return '<div class="tile ' + (cls || '') + '">' + artSvg + '</div>';
+            }
+
+            /* ---------- data & catalog images ---------- */
+            var MAT = {
+                kayu: { n: 'Kayu dan serbuk', f: .55, b: 250, hp: 450, d: 2.1, img: 'https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&w=700&q=80' },
+                logam: { n: 'Logam & Fabrikasi', f: 3.2, b: 400, hp: 5200, d: 3.4, img: 'https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&w=700&q=80' },
+                plastik: { n: 'Plastik & Polimer', f: 1.8, b: 350, hp: 5000, d: -1.2, img: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=700&q=80' },
+                tekstil: { n: 'Tekstil & Perca', f: 3.6, b: 300, hp: 2300, d: .8, img: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=700&q=80' },
+                kertas: { n: 'Kertas & Kardus', f: 1, b: 200, hp: 1600, d: 0, img: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=700&q=80' },
+                kaca: { n: 'Kaca & Cullet', f: .3, b: 200, hp: 600, d: .4, img: 'https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?auto=format&fit=crop&w=700&q=80' },
+                minyak: { n: 'Minyak Jelantah (UCO)', f: 2.4, b: 500, hp: 7000, d: 1.6, img: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=700&q=80' }
+            };
+            var MK = Object.keys(MAT);
+
+            var L = [
+                { id: 'l1', mat: 'kayu', nama: 'Serbuk gergaji kayu jati kering', vol: 4200, harga: 450, grade: 'A', seller: 'CV Jati Karya Mebel', kota: 'Jepara', km: 12, x: 64, y: 38, r: 4.8, desk: 'Serbuk kering kadar air rendah (<12%), bebas paku dan serpihan logam. Sangat cocok untuk papan partikel, briket biomassa, dan media tanam.', photo: 'https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&w=700&q=80' },
+                { id: 'l2', mat: 'logam', nama: 'Potongan aluminium profil bersih', vol: 1800, harga: 14500, grade: 'A', seller: 'PT Alumindo Fabrikasi', kota: 'Karawang', km: 72, x: 24, y: 30, r: 4.7, desk: 'Sisa potong profil aluminium satu jenis paduan seri 6000, tanpa cat dan pelapis. Siap lebur langsung di tanur smelter.', photo: 'https://images.unsplash.com/photo-1535813547-99c456a41d4a?auto=format&fit=crop&w=700&q=80' },
+                { id: 'l3', mat: 'logam', nama: 'Scrap plat besi lembaran stamping', vol: 6500, harga: 5200, grade: 'B', seller: 'PT Baja Presisi', kota: 'Cikarang', km: 88, x: 18, y: 62, r: 4.5, desk: 'Sisa stamping plat besi tebal 2 sampai 6 mm. Kering, sedikit karat permukaan wajar, tanpa kontaminasi oli berlebih.', photo: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=700&q=80' },
+                { id: 'l4', mat: 'plastik', nama: 'Pecahan PET botol bening bersih', vol: 3000, harga: 4800, grade: 'A', seller: 'PT Tirta Kemas', kota: 'Sidoarjo', km: 34, x: 76, y: 60, r: 4.9, desk: 'Flake PET jernih hasil giling botol afkir pra-konsumen, sudah hot-washed dan dikeringkan. Bebas PVC dan cincin tutup. Kadar air <1%.', photo: 'https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=700&q=80' },
+                { id: 'l5', mat: 'plastik', nama: 'Regrind HDPE campur warna seragam', vol: 2200, harga: 6500, grade: 'B', seller: 'PT Wadah Nusantara', kota: 'Tangerang', km: 64, x: 36, y: 76, r: 4.4, desk: 'Regrind HDPE dari sisa injeksi blow molding wadah dan jeriken, warna campur, ukuran seragam 8-10 mm.', photo: 'https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=700&q=80' },
+                { id: 'l6', mat: 'tekstil', nama: 'Perca kain katun pabrik garmen', vol: 2600, harga: 2300, grade: 'B', seller: 'PT Sri Rejeki Garmen', kota: 'Bandung', km: 41, x: 44, y: 20, r: 4.6, desk: 'Sisa potong kain katun dan campuran combed, dipilah menurut warna dasar. Untuk bahan pengisi majun, isolasi peredam, dan serat daur ulang.', photo: 'https://images.unsplash.com/photo-1558769132-cb1aea458c5e?auto=format&fit=crop&w=700&q=80' },
+                { id: 'l7', mat: 'kertas', nama: 'Potongan kardus gelombang bal press', vol: 5000, harga: 1600, grade: 'B', seller: 'PT Kemasan Prima', kota: 'Semarang', km: 27, x: 56, y: 72, r: 4.3, desk: 'Sisa die-cut kardus gelombang tiga lapis, kering, terikat padat dalam bal press tanpa plastik dan isolasi.', photo: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?auto=format&fit=crop&w=700&q=80' },
+                { id: 'l8', mat: 'kaca', nama: 'Pecahan kaca botol bening (cullet)', vol: 3800, harga: 600, grade: 'C', seller: 'PT Gelas Sinar', kota: 'Bekasi', km: 95, x: 84, y: 28, r: 4.2, desk: 'Cullet pecahan botol bening hasil afkir lini produksi kaca. Bebas keramik dan logam, butuh pencucian label kertas.', photo: 'https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?auto=format&fit=crop&w=700&q=80' },
+                { id: 'l9', mat: 'minyak', nama: 'Minyak jelantah industri pangan (UCO)', vol: 900, harga: 7000, grade: 'A', seller: 'PT Boga Nusantara', kota: 'Gresik', km: 48, x: 12, y: 44, r: 4.8, desk: 'Minyak jelantah (UCO) dari fryer industri keripik, disaring dan disimpan dalam drum tertutup. FFA < 3%, siap diolah jadi biodiesel.', photo: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=700&q=80' },
+                { id: 'l10', mat: 'kayu', nama: 'Potongan MDF dan plywood sisa mebel', vol: 3400, harga: 700, grade: 'B', seller: 'PT Furnitur Mandiri', kota: 'Jepara', km: 15, x: 70, y: 84, r: 4.5, desk: 'Potongan MDF dan plywood berbagai ukuran sisa produksi lemari dan meja. Kering, bersih, cocok untuk briket dan produk komposit.', photo: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=700&q=80' }
+            ];
+
+            var BUY = [
+                { id: 'b1', nama: 'CV Serat Daur Ulang', mats: ['tekstil', 'kertas'], kota: 'Bandung', km: 38, x: 40, y: 28, cap: 40 },
+                { id: 'b2', nama: 'PT Papan Lestari', mats: ['kayu'], kota: 'Jepara', km: 20, x: 60, y: 46, cap: 120 },
+                { id: 'b3', nama: 'PT Lebur Logam Nusa', mats: ['logam'], kota: 'Sidoarjo', km: 80, x: 80, y: 66, cap: 300 },
+                { id: 'b4', nama: 'Bank Sampah Industri Hijau', mats: ['plastik', 'kertas', 'kaca'], kota: 'Semarang', km: 9, x: 54, y: 62, cap: 60 },
+                { id: 'b5', nama: 'PT Resin Sirkular', mats: ['plastik'], kota: 'Karawang', km: 55, x: 22, y: 40, cap: 90 },
+                { id: 'b6', nama: 'UD Briket Energi', mats: ['kayu'], kota: 'Pati', km: 18, x: 68, y: 30, cap: 25 },
+                { id: 'b7', nama: 'PT Biodiesel Nusantara', mats: ['minyak'], kota: 'Gresik', km: 70, x: 14, y: 56, cap: 50 },
+                { id: 'b8', nama: 'PT Kaca Ulang Jaya', mats: ['kaca'], kota: 'Cikarang', km: 110, x: 86, y: 80, cap: 150 }
+            ];
+
+            var STEPS = [
+                'Pesanan dibuat, dana masuk escrow',
+                'Penjual menyiapkan dan menimbang barang',
+                'Barang diambil dan dikirim',
+                'Pembeli mengonfirmasi barang sesuai',
+                'Dana dicairkan ke penjual',
+                'Sertifikat ESG terbit'
+            ];
+
+            var NAV = [
+                ['home', 'Beranda', 'home'],
+                ['katalog', 'Katalog', 'grid'],
+                ['peta', 'Peta', 'map'],
+                ['kalkulator', 'Hitung', 'calc'],
+                ['profil', 'Profil', 'person']
+            ];
+
+            /* ---------- state management ---------- */
+            var KEY = 'circula_demo_v1';
+            var S = {
+                txs: [], favs: [], mine: [],
+                user: { name: 'PT Mitra Industri Nusantara', role: 'penghasil' },
+                theme: 'auto', seen: false,
+                ui: {
+                    kat: { q: '', mat: 'all', sort: 'near', view: 'grid' },
+                    peta: { mode: null, mat: 'all', sel: null },
+                    calc: { mat: 'plastik', vol: 1000, price: 5000 },
+                    ob: 0,
+                    sell: { mat: 'kayu', grade: 'A', photo: null }
+                }
+            };
+
+            function seed() {
+                var d = function (n) { return new Date(Date.now() - n * 864e5).toISOString() };
+                S.txs = [
+                    { id: 1, lid: 'l6', qty: 1200, price: 2300, step: 6, date: d(12) },
+                    { id: 2, lid: 'l4', qty: 800, price: 4800, step: 3, date: d(2) }
+                ];
+            }
+            function load() {
+                try {
+                    var o = JSON.parse(localStorage.getItem(KEY) || 'null');
+                    if (o) {
+                        ['txs', 'favs', 'mine', 'user', 'theme', 'seen'].forEach(function (k) {
+                            if (o[k] !== undefined) S[k] = o[k];
+                        });
+                        return true;
+                    }
+                } catch (e) { }
+                return false;
+            }
+            function save() {
+                try {
+                    localStorage.setItem(KEY, JSON.stringify({
+                        txs: S.txs,
+                        favs: S.favs,
+                        mine: S.mine.map(function (m) { var c = Object.assign({}, m); delete c.photo; return c }),
+                        user: S.user,
+                        theme: S.theme,
+                        seen: S.seen
+                    }));
+                } catch (e) { }
+            }
+            if (!load()) seed();
+
+            function applyTheme() {
+                var r = document.documentElement;
+                if (S.theme === 'auto') r.removeAttribute('data-theme');
+                else r.setAttribute('data-theme', S.theme);
+            }
+            applyTheme();
+
+            var all = function () { return S.mine.concat(L) };
+            var byId = function (id) { return all().filter(function (l) { return l.id === id })[0] };
+            function score(l) { var g = l.grade === 'A' ? 10 : l.grade === 'B' ? 5 : 0; return Math.min(99, 72 + g + Math.max(0, Math.round(20 - l.km / 5)) + (l.vol >= 3000 ? 3 : 0)) }
+            function scoreB(b) { return Math.min(99, 70 + (b.cap >= 50 ? 8 : 4) + Math.max(0, Math.round(22 - b.km / 5))) }
+            function money(t) {
+                var l = byId(t.lid) || { km: 30 };
+                var sub = t.qty * t.price;
+                var log = 150000 + (l.km || 30) * 7500;
+                return { sub: sub, log: log, total: sub + log, fee: sub * 0.05, net: sub * 0.95 };
+            }
+            function ini(n) { return n.replace(/^(PT|CV|UD)\s+/i, '').split(/\s+/).slice(0, 2).map(function (w) { return w[0] }).join('').toUpperCase() }
+            var fmtDate = function (iso) { return new Date(iso).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) };
+
+            function snack(m) {
+                var s = $('#snack');
+                s.textContent = m;
+                s.classList.add('show');
+                clearTimeout(snack.t);
+                snack.t = setTimeout(function () { s.classList.remove('show') }, 2600);
+            }
+            function openDlg(h) { dlg.innerHTML = h; if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); }
+            function closeDlg() { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); }
+
+            /* ---------- shared view components ---------- */
+            function bar(title, o) {
+                o = o || {};
+                return '<header class="appbar' + (o.back === false ? ' nb' : '') + '">' +
+                    (o.back === false ? '' : '<button class="icbtn" data-act="back" aria-label="Kembali">' + ic('back') + '</button>') +
+                    '<h1>' + title + '</h1><div class="grow"></div>' +
+                    (o.actions || '') +
+                    '</header>';
+            }
+            function favBtn(id, cls) {
+                var on = S.favs.indexOf(id) > -1;
+                return '<button class="icbtn fav ' + (on ? 'on' : '') + ' ' + (cls || '') + '" data-act="fav" data-id="' + id + '" aria-label="' + (on ? 'Hapus dari simpanan' : 'Simpan listing') + '" aria-pressed="' + on + '">' + ic('heart', 20) + '</button>';
+            }
+            function rowItem(l) {
+                return '<article class="row">' +
+                    '<div>' + tile(l.mat, l.photo, 'sm') + '</div>' +
+                    '<div class="rowb"><h3>' + esc(l.nama) + '</h3><p class="sub">' + esc(l.seller) + '</p>' +
+                    '<div class="meta"><span>' + ic('pin', 14) + l.km + ' km</span><span>' + ic('box', 14) + kgf(l.vol) + '</span></div></div>' +
+                    '<div class="rowp"><strong>' + rp(l.harga) + '</strong><small>per kg</small></div>' +
+                    '<a class="stretch" href="#/listing/' + l.id + '" aria-label="Buka ' + esc(l.nama) + '"></a>' +
+                    '</article>';
+            }
+            function lcard(l) {
+                return '<article class="lcard">' +
+                    '<div class="lc-img">' + tile(l.mat, l.photo) + favBtn(l.id) + '<span class="gr">Grade ' + l.grade + '</span></div>' +
+                    '<div class="lc-b"><h3>' + esc(l.nama) + '</h3><p class="pr">' + rp(l.harga) + ' <small>/kg</small></p>' +
+                    '<div class="meta"><span>' + ic('pin', 14) + l.km + ' km</span><span>' + ic('box', 14) + kgf(l.vol) + '</span></div></div>' +
+                    '<a class="stretch" href="#/listing/' + l.id + '" aria-label="Buka ' + esc(l.nama) + '"></a>' +
+                    '</article>';
+            }
+            function fab() { return '<a class="fab" href="#/jual">' + ic('add') + '<span>Jual limbah</span></a>' }
+            function stats() {
+                var done = S.txs.filter(function (t) { return t.step >= 6 }), kg = 0, co = 0, val = 0, av = 0;
+                done.forEach(function (t) {
+                    var l = byId(t.lid);
+                    if (!l) return;
+                    var m = MAT[l.mat];
+                    kg += t.qty;
+                    co += t.qty * m.f;
+                    val += t.qty * t.price;
+                    av += t.qty * m.b;
+                });
+                return { done: done, kg: kg, co: co, val: val, av: av, open: S.txs.length - done.length };
+            }
+
+            /* ---------- views ---------- */
+            function vSplash() {
+                return '<section class="splash">' +
+                    '<div class="sp-mid">' +
+                    '<span class="badge-hero">' + ic('leaf', 16) + 'Platform Simbiosis Industri B2B</span>' +
+                    logo(100) +
+                    '<h1>Circula</h1>' +
+                    '<p>Ubah residu & limbah industri menjadi bahan baku sirkular bernilai ekonomi tinggi</p>' +
+                    '</div>' +
+                    '<div class="sp-btm">' +
+                    '<a class="btn fill block" href="#/auth/masuk">Masuk ke Akun Bisnis</a>' +
+                    '<a class="btn outline block" href="#/auth/daftar">Daftar Akun Baru</a>' +
+                    '<a class="btn text block" href="#/home" data-act="guest">Eksplorasi Katalog Demo</a>' +
+                    '</div></section>';
+            }
+
+            function vAuth(mode) {
+                mode = mode === 'daftar' ? 'daftar' : 'masuk';
+                var r = S.user.role;
+                return '<section class="auth narrow">' +
+                    '<h1>' + (mode === 'daftar' ? 'Daftar Akun Bisnis' : 'Masuk ke Circula') + '</h1>' +
+                    '<div class="seg" style="margin-bottom:24px" role="tablist">' +
+                    '<button class="' + (mode === 'masuk' ? 'on' : '') + '" data-act="authMode" data-v="masuk">Masuk</button>' +
+                    '<button class="' + (mode === 'daftar' ? 'on' : '') + '" data-act="authMode" data-v="daftar">Daftar</button>' +
+                    '</div>' +
+                    '<div id="authform" data-mode="' + mode + '">' +
+                    (mode === 'daftar' ?
+                        '<div class="fld"><span>Peran Industri</span>' +
+                        '<div class="seg" id="roleseg">' +
+                        '<button type="button" class="' + (r === 'penghasil' ? 'on' : '') + '" data-act="role" data-v="penghasil">Penghasil limbah</button>' +
+                        '<button type="button" class="' + (r === 'pembeli' ? 'on' : '') + '" data-act="role" data-v="pembeli">Pembeli / Pendaur ulang</button>' +
+                        '</div></div>' +
+                        '<label class="fld"><span>Nama Perusahaan / Pabrik</span><input id="a-co" autocomplete="organization" placeholder="Contoh: PT Manufaktur Hijau Jaya"></label>' : '') +
+                    '<label class="fld"><span>Email Bisnis</span><input id="a-em" type="email" autocomplete="email" placeholder="nama@perusahaan.co.id"></label>' +
+                    '<label class="fld"><span>Kata Sandi</span><input id="a-pw" type="password" autocomplete="' + (mode === 'daftar' ? 'new-password' : 'current-password') + '" placeholder="Minimal 6 karakter"></label>' +
+                    (mode === 'daftar' ?
+                        '<label class="chk"><input type="checkbox" id="a-ok"><span>Saya menyetujui syarat layanan Circula, kebijakan privasi, dan bersedia mengunggah legalitas usaha untuk verifikasi KYC.</span></label>' : '') +
+                    '<p class="err" id="a-err" role="alert"></p>' +
+                    '<button class="btn fill block" data-act="submitAuth">' + (mode === 'daftar' ? 'Buat Akun Bisnis' : 'Masuk Sekarang') + '</button>' +
+                    '<p class="note" style="justify-content:center">' + ic('info', 18) + '<span>Mode demonstrasi: data tersimpan lokal di peramban Anda.</span></p>' +
+                    '</div></section>';
+            }
+
+            var OB = [
+                { mat: 'kayu', t: 'Katalog Limbah Terverifikasi', d: 'Publikasikan volume, spesifikasi mutu, dan lokasi limbah industri Anda untuk menjangkau jaringan pembeli nasional.' },
+                { mat: 'plastik', t: 'Pencocokan Cerdas & Peta Logistik', d: 'Algoritma Circula menghitung jarak terdekat dan merekomendasikan pabrik pendaur ulang yang membutuhkan bahan baku Anda.' },
+                { mat: 'kertas', t: 'Transaksi Escrow & Sertifikat ESG', d: 'Dana tertahan aman di rekening bersama hingga barang diverifikasi. Dapatkan sertifikat reduksi emisi CO₂e resmi untuk audit ESG.' }
+            ];
+
+            function vOb() {
+                var i = S.ui.ob, o = OB[i];
+                return '<section class="ob">' +
+                    '<div class="head">' +
+                    '<div style="color:var(--p)">' + logo(42) + '</div>' +
+                    '<h1>' + o.t + '</h1>' +
+                    '<p class="sub">' + o.d + '</p>' +
+                    '</div>' +
+                    '<div class="art">' + tile(o.mat) + '</div>' +
+                    '<div class="foot">' +
+                    '<div class="dots">' + OB.map(function (_, k) { return '<i class="' + (k === i ? 'on' : '') + '"></i>' }).join('') + '</div>' +
+                    '<button class="btn fill block" data-act="obNext">' + (i === OB.length - 1 ? 'Mulai Eksplorasi' : 'Lanjut') + '</button>' +
+                    (i < OB.length - 1 ? '<button class="btn text block" style="margin-top:8px" data-act="obSkip">Lewati Pengenalan</button>' : '') +
+                    '</div></section>';
+            }
+
+            function vHome() {
+                var s = stats(), nw = all().slice(0, 4), feat = [L[3], L[0], L[5], L[1]];
+                return '<div class="page">' +
+                    '<div class="hello">' +
+                    '<div class="avatar">' + esc(ini(S.user.name)) + '</div>' +
+                    '<div class="grow">' +
+                    '<p class="sub">Selamat datang,</p>' +
+                    '<h1>' + esc(S.user.name) + '</h1>' +
+                    '</div>' +
+                    '<span class="badge">' + ic('shield', 14) + (S.user.role === 'penghasil' ? 'Penghasil' : 'Pembeli') + '</span>' +
+                    '</div>' +
+                    '<form class="search" id="hsearch" role="search">' + ic('search') +
+                    '<input id="hq" type="search" placeholder="Cari limbah: serbuk kayu, aluminium, botol PET, perca..." aria-label="Cari limbah">' +
+                    '</form>' +
+                    '<nav class="quick" aria-label="Aksi cepat">' +
+                    '<a href="#/jual"><span class="c">' + ic('add', 26) + '</span>Jual limbah</a>' +
+                    '<a href="#/peta"><span class="c">' + ic('map', 26) + '</span>Cari pembeli</a>' +
+                    '<a href="#/kalkulator"><span class="c">' + ic('leaf', 26) + '</span>Hitung karbon</a>' +
+                    '<a href="#/sertifikat"><span class="c">' + ic('cert', 26) + '</span>Sertifikat</a>' +
+                    '</nav>' +
+                    '<div class="sec"><h2>Pilihan Unggulan Minggu Ini</h2><a href="#/katalog">Lihat Semua</a></div>' +
+                    '<div class="carousel">' +
+                    feat.map(function (l) {
+                        return '<article class="hcard">' +
+                            tile(l.mat, l.photo) +
+                            '<h3>' + esc(l.nama) + '</h3>' +
+                            '<p class="pr">' + rp(l.harga) + ' <span class="sub" style="font-weight:400;font-size:12px">/ kg</span></p>' +
+                            '<div class="meta"><span>' + ic('pin', 14) + l.kota + '</span><span>' + ic('box', 14) + kgf(l.vol) + '</span></div>' +
+                            '<a class="stretch" href="#/listing/' + l.id + '" aria-label="Buka ' + esc(l.nama) + '"></a>' +
+                            '</article>';
+                    }).join('') +
+                    '</div>' +
+                    '<div class="sec"><h2>Dampak Sirkularitas Anda</h2><a href="#/profil">Laporan ESG Lengkap</a></div>' +
+                    '<div class="card pc">' +
+                    '<p style="font-weight:500">' + (s.done.length ? 'Dari ' + s.done.length + ' transaksi tuntas, Anda telah mengalihkan limbah dari TPA dan menghemat emisi karbon.' : 'Belum ada transaksi tuntas. Matriks reduksi karbon terbit otomatis begitu transaksi pertama selesai.') + '</p>' +
+                    '<div class="stat3">' +
+                    '<div><b>' + kgf(s.kg) + '</b><small>Dialihkan dari TPA</small></div>' +
+                    '<div><b>' + co2f(s.co) + '</b><small>CO₂e Dihemat</small></div>' +
+                    '<div><b>' + num(s.co / 21, 1) + '</b><small>Setara Pohon/Thn</small></div>' +
+                    '</div></div>' +
+                    '<div class="sec"><h2>Indeks Harga Pasar Industri (per kg)</h2><span class="sub">Benchmark percontohan</span></div>' +
+                    '<div class="card" style="padding:6px 20px">' +
+                    MK.slice(0, 5).map(function (k) {
+                        var m = MAT[k];
+                        return '<div class="price-row">' +
+                            tile(k, m.img, 'sm') +
+                            '<div class="grow"><strong>' + m.n + '</strong></div>' +
+                            '<div style="text-align:right">' +
+                            '<strong>' + rp(m.hp) + '</strong>' +
+                            '<div class="sub ' + (m.d > 0 ? 'up' : m.d < 0 ? 'down' : '') + '" style="display:flex;align-items:center;justify-content:flex-end;font-size:12px">' +
+                            (m.d > 0 ? ic('up', 16) : m.d < 0 ? ic('down', 16) : '') + (m.d === 0 ? 'Stabil' : Math.abs(m.d) + '%') +
+                            '</div></div></div>';
+                    }).join('') +
+                    '</div>' +
+                    '<div class="sec"><h2>Listing Terbaru di Katalog</h2><a href="#/katalog">Buka Katalog</a></div>' +
+                    nw.slice(0, 3).map(rowItem).join('') +
+                    '<a class="cta" href="#/tentang">' +
+                    '<div class="grow">' +
+                    '<h3>Bagaimana Sirkularitas Circula Bekerja?</h3>' +
+                    '<p>Pelajari ekosistem simbiosis industri, alur escrow, dan kontribusi terhadap target SDGs 12 & 13.</p>' +
+                    '</div>' +
+                    ic('chev', 32) +
+                    '</a></div>' + fab();
+            }
+
+            function vKat() {
+                var k = S.ui.kat;
+                return bar('Katalog Limbah Industri', {
+                    back: false,
+                    actions: '<button class="icbtn" data-act="katView" aria-label="Ganti tampilan daftar atau kisi" id="kview">' + ic(k.view === 'grid' ? 'list' : 'grid') + '</button>'
+                }) +
+                    '<div class="page">' +
+                    '<label class="search">' + ic('search') +
+                    '<input id="kq" type="search" placeholder="Cari nama bahan limbah, asal pabrik, atau kota..." value="' + esc(k.q) + '" aria-label="Cari limbah">' +
+                    '</label>' +
+                    '<div class="chips" id="kchips"></div>' +
+                    '<div class="sortbar" style="display:flex;justify-content:space-between;align-items:center;margin:6px 0 16px;font-size:13.5px;color:var(--on-sv)">' +
+                    '<span id="kcount" style="font-weight:600"></span>' +
+                    '<select id="ksort" style="height:36px;border-radius:10px;border:1px solid var(--ol);background:var(--sc);color:var(--on-s);padding:0 10px;font-weight:500" aria-label="Urutkan">' +
+                    '<option value="near">Jarak Terdekat</option>' +
+                    '<option value="cheap">Harga Termurah</option>' +
+                    '<option value="vol">Volume Terbesar</option>' +
+                    '<option value="match">Tingkat Kesesuaian</option>' +
+                    '</select>' +
+                    '</div>' +
+                    '<div id="results"></div>' +
+                    '</div>' + fab();
+            }
+
+            function katFill() {
+                var k = S.ui.kat, q = k.q.trim().toLowerCase();
+                var a = all().filter(function (l) {
+                    return (k.mat === 'all' || l.mat === k.mat) &&
+                        (!q || (l.nama + ' ' + l.seller + ' ' + l.kota + ' ' + MAT[l.mat].n).toLowerCase().indexOf(q) > -1);
+                });
+                a.sort(function (x, y) {
+                    return k.sort === 'cheap' ? x.harga - y.harga :
+                        k.sort === 'vol' ? y.vol - x.vol :
+                            k.sort === 'match' ? score(y) - score(x) :
+                                x.km - y.km;
+                });
+                $('#kchips').innerHTML = ['all'].concat(MK).map(function (m) {
+                    var on = k.mat === m;
+                    return '<button class="chip ' + (on ? 'on' : '') + '" data-act="katMat" data-v="' + m + '" aria-pressed="' + on + '">' +
+                        (on ? ic('check', 16) : '') + (m === 'all' ? 'Semua Bahan' : MAT[m].n) +
+                        '</button>';
+                }).join('');
+                $('#kcount').textContent = a.length + ' listing aktif tersedia';
+                var r = $('#results');
+                if (!a.length) {
+                    r.className = '';
+                    r.innerHTML = '<div class="empty">' +
+                        '<h3>Tidak ada limbah yang cocok</h3>' +
+                        '<p>Coba gunakan kata kunci berbeda, pilih kategori lain, atau daftarkan limbah pabrik Anda sekarang.</p>' +
+                        '<a class="btn tonal" href="#/jual">Jual Limbah Industri</a>' +
+                        '</div>';
+                    return;
+                }
+                r.className = k.view === 'grid' ? 'grid' : '';
+                r.innerHTML = a.map(k.view === 'grid' ? lcard : rowItem).join('');
+            }
+
+            function vListing(id) {
+                var l = byId(id);
+                if (!l) return notFound();
+                var m = MAT[l.mat], mine = S.mine.some(function (x) { return x.id === l.id });
+                return bar('Detail Limbah Industri', { actions: favBtn(l.id) }) +
+                    '<div class="page detail">' +
+                    '<div class="d-img">' + tile(l.mat, l.photo) + '</div>' +
+                    '<div class="d-info">' +
+                    '<div style="display:flex;gap:8px;align-items:center">' +
+                    '<span class="badge">' + m.n + '</span>' +
+                    '<span class="badge info">Grade ' + l.grade + '</span>' +
+                    '</div>' +
+                    '<h2>' + esc(l.nama) + '</h2>' +
+                    '<p class="price">' + rp(l.harga) + ' <small>per kg</small></p>' +
+                    '<p class="lead">' + esc(l.desk || 'Kondisi material siap dijemput dengan armada logistik terpal/kontainer.') + '</p>' +
+                    '<dl class="specs">' +
+                    '<dt>Volume Tersedia</dt><dd>' + kgf(l.vol) + '</dd>' +
+                    '<dt>Kualitas Bahan</dt><dd>Grade ' + l.grade + '</dd>' +
+                    '<dt>Lokasi Penyimpanan</dt><dd>' + esc(l.kota) + ' (' + l.km + ' km)</dd>' +
+                    '<dt>Estimasi Total Lot</dt><dd>' + rp(l.vol * l.harga) + '</dd>' +
+                    '</dl>' +
+                    '<div class="two">' +
+                    '<div class="card"><b>' + co2f(l.vol * m.f) + '</b><small>CO₂e dihemat bila seluruh lot didaur ulang</small></div>' +
+                    '<div class="card"><b>' + rp(l.vol * m.b) + '</b><small>Estimasi biaya buang ke TPA yang dihindari</small></div>' +
+                    '</div>' +
+                    '<div class="card seller">' +
+                    '<div class="avatar">' + esc(ini(l.seller)) + '</div>' +
+                    '<div class="grow">' +
+                    '<strong>' + esc(l.seller) + '</strong>' +
+                    '<div class="meta" style="margin-top:2px"><span>' + ic('shield', 14) + 'Terverifikasi</span><span>' + ic('star', 14) + (l.r || 4.8) + ' Rating</span></div>' +
+                    '</div></div>' +
+                    (mine ?
+                        '<div class="acts"><a class="btn tonal" href="#/katalog">Kembali ke Katalog</a><button class="btn outline danger" data-act="del" data-id="' + l.id + '">Hapus Listing Saya</button></div>' :
+                        '<div class="acts"><button class="btn outline" data-act="offer" data-id="' + l.id + '">Ajukan Negosiasi</button><button class="btn fill" data-act="buy" data-id="' + l.id + '">' + ic('shield', 18) + 'Beli via Rekening Escrow</button></div>') +
+                    '</div></div>';
+            }
+
+            function notFound() {
+                return bar('Halaman Tidak Ditemukan') +
+                    '<div class="page"><div class="empty"><h3>Halaman tidak ditemukan</h3><p>Data limbah atau transaksi yang Anda cari tidak tersedia.</p><a class="btn tonal" href="#/home">Kembali ke Beranda</a></div></div>';
+            }
+
+            /* ---------- interactive matching map ---------- */
+            var BLOCKS = [
+                [30, 30, 70, 50], [130, 36, 90, 60], [330, 24, 100, 56], [490, 60, 80, 70], [30, 150, 60, 70],
+                [140, 160, 110, 60], [340, 150, 90, 70], [490, 170, 90, 50], [40, 250, 90, 70], [330, 300, 110, 60],
+                [480, 290, 90, 80], [150, 370, 100, 36]
+            ];
+            function mapSvg() {
+                return '<svg class="mapsvg" viewBox="0 0 600 420" preserveAspectRatio="none" aria-hidden="true">' +
+                    '<rect width="600" height="420" fill="var(--sc)"/>' +
+                    '<g fill="var(--zone)">' +
+                    BLOCKS.map(function (b) { return '<rect x="' + b[0] + '" y="' + b[1] + '" width="' + b[2] + '" height="' + b[3] + '" rx="10"/>' }).join('') +
+                    '</g>' +
+                    '<path d="M-10 330 C 120 270, 200 360, 310 300 S 520 210, 620 250" stroke="var(--water)" stroke-width="26" fill="none" stroke-linecap="round"/>' +
+                    '<g stroke="var(--road)" stroke-width="10" fill="none" stroke-linecap="round">' +
+                    '<path d="M0 125H600"/><path d="M0 385H600"/><path d="M110 0V420"/><path d="M300 0V420"/><path d="M470 0V420"/><path d="M0 40L600 210"/>' +
+                    '</g>' +
+                    '<g fill="none" stroke="var(--olv)" stroke-dasharray="4 7" opacity=".7">' +
+                    '<circle cx="300" cy="231" r="95"/><circle cx="300" cy="231" r="180"/>' +
+                    '</g></svg>';
+            }
+
+            function vPeta() {
+                return bar('Peta Pencocokan Simbiosis', { back: false }) +
+                    '<div class="peta">' +
+                    '<div class="mapbox" id="mapbox">' +
+                    mapSvg() +
+                    '<div class="mapchips"><div class="chips" id="pchips"></div></div>' +
+                    '<div class="me" title="Lokasi Pabrik Anda"></div>' +
+                    '<span class="me-l">Pabrik Anda</span>' +
+                    '<div id="pins"></div>' +
+                    '</div>' +
+                    '<section class="sheet">' +
+                    '<div class="seg modes" role="tablist">' +
+                    '<button data-act="mapMode" data-v="jual" id="m-jual">Saya Punya Limbah</button>' +
+                    '<button data-act="mapMode" data-v="cari" id="m-cari">Saya Cari Bahan Baku</button>' +
+                    '</div>' +
+                    '<h2 style="font-size:18px;margin-bottom:12px" id="ptitle"></h2>' +
+                    '<div id="plist"></div>' +
+                    '</section></div>';
+            }
+
+            function petaFill() {
+                var p = S.ui.peta, mode = p.mode || (S.user.role === 'pembeli' ? 'cari' : 'jual');
+                p.mode = mode;
+                var items = mode === 'cari' ?
+                    all().map(function (l) { return { id: l.id, mat: l.mat, nama: l.nama, sub: l.seller, kota: l.kota, km: l.km, x: l.x || 50, y: l.y || 50, sc: score(l), l: l } }) :
+                    BUY.map(function (b) { return { id: b.id, mat: b.mats[0], mats: b.mats, nama: b.nama, sub: 'Menerima ' + b.mats.map(function (m) { return MAT[m].n.toLowerCase() }).join(', '), kota: b.kota, km: b.km, x: b.x, y: b.y, sc: scoreB(b), b: b } });
+                if (p.mat !== 'all') {
+                    items = items.filter(function (i) { return mode === 'cari' ? i.mat === p.mat : i.mats.indexOf(p.mat) > -1 });
+                }
+                items.sort(function (a, b) { return b.sc - a.sc });
+                if (p.sel && !items.some(function (i) { return i.id === p.sel })) p.sel = null;
+
+                $('#m-jual').className = mode === 'jual' ? 'on' : '';
+                $('#m-cari').className = mode === 'cari' ? 'on' : '';
+                $('#pchips').innerHTML = ['all'].concat(MK).map(function (m) {
+                    var on = p.mat === m;
+                    return '<button class="chip ' + (on ? 'on' : '') + '" data-act="mapMat" data-v="' + m + '" aria-pressed="' + on + '">' +
+                        (m === 'all' ? 'Semua Bahan' : MAT[m].n) + '</button>';
+                }).join('');
+                $('#ptitle').textContent = items.length ? items.length + (mode === 'cari' ? ' Pasokan Limbah Siap Jemput' : ' Pembeli / Pendaur Ulang Cocok') : 'Belum Ada Hasil yang Cocok';
+                $('#pins').innerHTML = items.map(function (i) {
+                    var on = p.sel === i.id;
+                    return '<button class="pin ' + (on ? 'on' : '') + '" style="left:' + i.x + '%;top:' + i.y + '%" data-act="pin" data-id="' + i.id + '" aria-label="' + esc(i.nama) + ', ' + i.km + ' km">' +
+                        '<span class="pb">' + ic('box', 18) + '</span>' +
+                        (on ? '<span class="lab">' + esc(i.nama) + ' (' + i.km + ' km)</span>' : '') +
+                        '</button>';
+                }).join('');
+                $('#plist').innerHTML = items.length ? items.map(function (i) {
+                    var href = mode === 'cari' ? '<a class="stretch" href="#/listing/' + i.id + '" aria-label="Buka ' + esc(i.nama) + '"></a>' : '';
+                    var priceTxt = mode === 'cari' ? rp(i.l.harga) + ' /kg' : 'Beli kisaran ' + rp(MAT[p.mat !== 'all' ? p.mat : i.mat].hp * 0.9) + ' /kg';
+                    return '<article class="match ' + (p.sel === i.id ? 'sel' : '') + '" data-id="' + i.id + '">' +
+                        tile(i.mat, i.l && i.l.photo, 'sm') +
+                        '<div class="grow">' +
+                        '<h3>' + esc(i.nama) + '</h3>' +
+                        '<p class="sub">' + esc(i.sub) + '</p>' +
+                        '<div class="meta" style="margin-top:6px">' +
+                        '<span>' + ic('pin', 14) + esc(i.kota) + ', ' + i.km + ' km</span>' +
+                        '<span>' + ic('money', 14) + priceTxt + '</span>' +
+                        (i.b ? '<span>' + ic('box', 14) + i.b.cap + ' ton/bulan</span>' : '') +
+                        '</div>' +
+                        (mode === 'jual' ? '<button class="btn tonal" data-act="contactBuyer" data-id="' + i.id + '">Tawarkan Limbah</button>' : '') +
+                        '</div>' +
+                        '<span class="score">' + i.sc + '% cocok</span>' +
+                        href +
+                        '</article>';
+                }).join('') : '<div class="empty"><h3>Belum ada hasil</h3><p>Silakan coba jenis material atau kategori lain.</p></div>';
+            }
+
+            /* ---------- calculator ---------- */
+            function vCalc() {
+                var c = S.ui.calc;
+                return bar('Kalkulator Dampak & Manfaat Ekonomi', { back: false }) +
+                    '<div class="page"><div class="calcgrid">' +
+                    '<div>' +
+                    '<p class="sub" style="margin-bottom:18px">Simulasikan potensi keuntungan moneter dan penurunan jejak karbon (CO₂e) dari limbah industri pabrik Anda.</p>' +
+                    '<label class="fld"><span>Kategori Material Limbah</span>' +
+                    '<select id="cm">' + MK.map(function (m) { return '<option value="' + m + '"' + (c.mat === m ? ' selected' : '') + '>' + MAT[m].n + '</option>' }).join('') + '</select>' +
+                    '</label>' +
+                    '<label class="fld"><span>Volume Limbah: <b id="cvl" style="color:var(--p)"></b></span>' +
+                    '<input id="cv" type="range" min="100" max="25000" step="100" value="' + c.vol + '">' +
+                    '</label>' +
+                    '<label class="fld"><span>Perkiraan Harga Jual per kg (Rp)</span>' +
+                    '<input id="cp" type="number" min="0" inputmode="numeric" value="' + c.price + '">' +
+                    '<small id="cph"></small>' +
+                    '</label>' +
+                    '</div>' +
+                    '<div id="cout"></div>' +
+                    '</div></div>';
+            }
+
+            function calcFill() {
+                var c = S.ui.calc, m = MAT[c.mat], gross = c.vol * c.price, fee = gross * 0.05, net = gross - fee, av = c.vol * m.b, co = c.vol * m.f;
+                $('#cvl').textContent = kgf(c.vol);
+                $('#cph').textContent = 'Harga patokan pasar: ' + rp(m.hp) + ' per kg';
+                $('#cout').innerHTML = '<div class="circs">' +
+                    '<div class="circ"><b>' + num(co) + '</b><small>kg CO₂e Dihemat</small></div>' +
+                    '<div class="circ"><b>' + rp(net).replace('Rp ', '') + '</b><small>Pendapatan Bersih</small></div>' +
+                    '<div class="circ"><b>' + rp(av).replace('Rp ', '') + '</b><small>Biaya Buang Dihindari</small></div>' +
+                    '</div>' +
+                    '<div class="card">' +
+                    '<div class="kv"><span>Nilai Penjualan Kotor</span><b>' + rp(gross) + '</b></div>' +
+                    '<div class="kv"><span>Biaya Layanan Platform (5%)</span><b style="color:var(--err)">− ' + rp(fee) + '</b></div>' +
+                    '<div class="kv"><span>Pendapatan Bersih Pabrik</span><b style="color:var(--p)">' + rp(net) + '</b></div>' +
+                    '<div class="kv"><span>Penghematan Biaya Buang (TPA)</span><b>' + rp(av) + '</b></div>' +
+                    '<div class="kv" style="border-top:2px solid var(--ol);padding-top:12px"><span>Total Manfaat Ekonomi Sirkular</span><b style="font-size:16px;color:var(--p)">' + rp(net + av) + '</b></div>' +
+                    '<div class="kv"><span>Setara Daya Serap Karbon</span><b>' + num(co / 21, 1) + ' pohon/tahun</b></div>' +
+                    '</div>' +
+                    '<div class="acts" style="margin-top:18px">' +
+                    '<a class="btn fill" href="#/jual">Pasang Listing Sekarang</a>' +
+                    '<a class="btn tonal" href="#/peta">Cari Pembeli Terdekat</a>' +
+                    '</div>' +
+                    '<p class="note">' + ic('info', 18) + '<span>Perhitungan menggunakan parameter emisi dan biaya pembuangan industri representatif. Hubungi tim kami untuk integrasi sertifikasi ESG resmi.</span></p>';
+            }
+
+            /* ---------- sell form ---------- */
+            function vSell() {
+                var f = S.ui.sell;
+                return bar('Jual Limbah Industri') +
+                    '<div class="page narrow" style="padding-top:12px">' +
+                    '<div class="fld"><span>Foto Material Limbah (Opsional)</span>' +
+                    '<label style="display:block;cursor:pointer">' +
+                    '<div id="photo" style="max-width:260px;margin-bottom:8px">' + tile(f.mat, f.photo) + '</div>' +
+                    '<input type="file" id="sf" accept="image/*" style="display:none">' +
+                    '<span class="btn tonal" style="height:38px;font-size:13.5px">' + ic('add', 18) + 'Pilih atau Ambil Foto</span>' +
+                    '</label></div>' +
+                    '<label class="fld"><span>Kategori Material</span>' +
+                    '<select id="sm">' + MK.map(function (m) { return '<option value="' + m + '"' + (f.mat === m ? ' selected' : '') + '>' + MAT[m].n + '</option>' }).join('') + '</select>' +
+                    '</label>' +
+                    '<label class="fld"><span>Nama Listing Limbah</span><input id="sn" placeholder="Contoh: Serbuk gergaji kayu jati kering"></label>' +
+                    '<label class="fld"><span>Estimasi Volume Siap Jual (kg)</span><input id="sv" type="number" min="1" inputmode="numeric" placeholder="3000"></label>' +
+                    '<label class="fld"><span>Harga Ditawarkan per kg (Rp)</span><input id="sp" type="number" min="1" inputmode="numeric"><small id="sph"></small></label>' +
+                    '<label class="fld"><span>Kota Lokasi Gudang / Pabrik</span><input id="sk" placeholder="Contoh: Semarang"></label>' +
+                    '<div class="fld"><span>Tingkat Kualitas (Grade)</span>' +
+                    '<div class="chips" style="padding:4px 0">' +
+                    ['A', 'B', 'C'].map(function (g) {
+                        return '<button type="button" class="chip ' + (f.grade === g ? 'on' : '') + '" data-act="grade" data-v="' + g + '">Grade ' + g + (g === 'A' ? ' (Bersih & Terpilah)' : g === 'B' ? ' (Campur Sedang)' : ' (Perlu Pemilahan)') + '</button>';
+                    }).join('') +
+                    '</div></div>' +
+                    '<label class="fld"><span>Spesifikasi & Cara Pengambilan</span><textarea id="sd" placeholder="Deskripsikan kadar air, kemasan (curah/jumbo bag), dan kesiapan forklift/armada penjemputan."></textarea></label>' +
+                    '<div class="card pc" id="sest" style="margin-bottom:18px"></div>' +
+                    '<label class="chk"><input type="checkbox" id="sb3"><span>Konfirmasi kepatuhan: Limbah ini adalah kategori Non-B3 (Bukan Bahan Berbahaya & Beracun) sesuai regulasi Kementerian LHK.</span></label>' +
+                    '<p class="err" id="s-err" role="alert"></p>' +
+                    '<button class="btn fill block" data-act="submitSell">Tayangkan Listing ke Marketplace</button>' +
+                    '</div>';
+            }
+
+            function sellEst() {
+                var m = MAT[S.ui.sell.mat], v = +$('#sv').value || 0, p = +$('#sp').value || 0;
+                $('#sph').textContent = 'Harga rata-rata pasar: ' + rp(m.hp) + ' per kg';
+                $('#sest').innerHTML = '<div class="kv"><span>Estimasi Nilai Total Lot</span><b>' + rp(v * p) + '</b></div>' +
+                    '<div class="kv"><span>Pendapatan Bersih (Net 95%)</span><b style="color:var(--p)">' + rp(v * p * 0.95) + '</b></div>' +
+                    '<div class="kv"><span>Potensi Reduksi Karbon</span><b>' + co2f(v * m.f) + ' CO₂e</b></div>';
+            }
+
+            /* ---------- transactions & certificate ---------- */
+            function txRow(t) {
+                var l = byId(t.lid) || { nama: 'Listing telah dialihkan', mat: 'kayu', seller: '-' };
+                var done = t.step >= 6;
+                return '<article class="row">' +
+                    '<div>' + tile(l.mat, null, 'sm') + '</div>' +
+                    '<div class="rowb"><h3>' + esc(l.nama) + '</h3><p class="sub">' + kgf(t.qty) + ' dari ' + esc(l.seller) + '</p>' +
+                    '<span class="badge ' + (done ? '' : 'warn') + '" style="margin-top:4px">' + (done ? 'Tuntas & Terverifikasi' : (STEPS[t.step] || 'Diproses')) + '</span></div>' +
+                    '<div class="rowp"><strong>' + rp(t.qty * t.price) + '</strong><small>' + fmtDate(t.date).split(' ').slice(0, 2).join(' ') + '</small></div>' +
+                    '<a class="stretch" href="#/transaksi/' + t.id + '" aria-label="Buka transaksi"></a>' +
+                    '</article>';
+            }
+
+            function vTx(id) {
+                if (!id) {
+                    return bar('Daftar Transaksi Escrow') +
+                        '<div class="page">' +
+                        (S.txs.length ? S.txs.slice().reverse().map(txRow).join('') : '<div class="empty"><h3>Belum ada transaksi</h3><p>Pilih limbah dari katalog dan bayar dengan jaminan rekening bersama escrow.</p><a class="btn tonal" href="#/katalog">Buka Katalog</a></div>') +
+                        '</div>';
+                }
+                var t = S.txs.filter(function (x) { return String(x.id) === id })[0];
+                if (!t) return notFound();
+                var l = byId(t.lid) || { nama: 'Listing telah dialihkan', mat: 'kayu', seller: '-', km: 30 }, mo = money(t), done = t.step >= 6;
+                return bar('Transaksi Escrow #' + t.id) +
+                    '<div class="page narrow" style="max-width:640px">' +
+                    (done ? '<div class="success"><div class="thumb">' + ic('thumb', 48) + '</div><h2 style="font-size:24px">Transaksi Tuntas!</h2><p class="sub" style="margin:6px 0 16px">Dana telah dicairkan ke penjual dan Sertifikat Keberlanjutan ESG resmi telah diterbitkan.</p><a class="btn fill" href="#/sertifikat/' + t.id + '">' + ic('cert', 20) + 'Lihat Sertifikat ESG</a></div>' : '') +
+                    '<div class="row" style="margin-bottom:20px">' +
+                    tile(l.mat, null, 'sm') +
+                    '<div class="rowb"><h3>' + esc(l.nama) + '</h3><p class="sub">' + kgf(t.qty) + ' dari ' + esc(l.seller) + '</p></div>' +
+                    '</div>' +
+                    '<div class="sec"><h2>Tahapan Logistik & Pembayaran</h2></div>' +
+                    '<div class="steps">' +
+                    STEPS.map(function (s, i) {
+                        var c = i < t.step ? 'done' : i === t.step ? 'cur' : 'todo';
+                        return '<div class="step ' + c + '">' +
+                            '<div class="dot">' + (c === 'done' ? ic('check', 18) : i + 1) + '</div>' +
+                            '<div class="t"><strong>' + s + '</strong></div>' +
+                            '</div>';
+                    }).join('') +
+                    '</div>' +
+                    (!done ? '<button class="btn tonal block" data-act="advance" data-id="' + t.id + '">Simulasikan Tahap Berikutnya</button><p class="note">' + ic('info', 18) + '<span>Fitur simulasi interaktif demo: status akan diperbarui otomatis saat armada logistik dan pembeli melakukan konfirmasi.</span></p>' : '') +
+                    '<div class="sec"><h2>Rincian Finansial Transaksi</h2></div>' +
+                    '<div class="card">' +
+                    '<div class="kv"><span>Subtotal Material (' + kgf(t.qty) + ' × ' + rp(t.price) + ')</span><b>' + rp(mo.sub) + '</b></div>' +
+                    '<div class="kv"><span>Estimasi Armada Logistik</span><b>' + rp(mo.log) + '</b></div>' +
+                    '<div class="kv" style="border-top:2px solid var(--ol);padding-top:12px"><span>Total Terbayar ke Escrow</span><b style="font-size:16px;color:var(--p)">' + rp(mo.total) + '</b></div>' +
+                    '<div class="kv"><span>Potongan Layanan Platform (5%)</span><b>' + rp(mo.fee) + '</b></div>' +
+                    '<div class="kv"><span>Penerimaan Bersih Penjual</span><b>' + rp(mo.net) + '</b></div>' +
+                    '</div></div>';
+            }
+
+            function qr(seed) {
+                var n = 21, cells = '', r = seed * 9301 + 49297;
+                function rnd() { r = (r * 9301 + 49297) % 233280; return r / 233280 }
+                function fin(x, y) { return (x < 7 && y < 7) || (x >= n - 7 && y < 7) || (x < 7 && y >= n - 7) }
+                for (var y = 0; y < n; y++) {
+                    for (var x = 0; x < n; x++) {
+                        var on;
+                        if (fin(x, y)) {
+                            var fx = x % (n - 7 > x ? n : n - 7), lx = x >= n - 7 ? x - (n - 7) : x, ly = y >= n - 7 ? y - (n - 7) : y;
+                            on = lx === 0 || lx === 6 || ly === 0 || ly === 6 || (lx >= 2 && lx <= 4 && ly >= 2 && ly <= 4);
+                        } else {
+                            on = rnd() > 0.5;
+                        }
+                        if (on) cells += '<rect x="' + x + '" y="' + y + '" width="1" height="1"/>';
+                    }
+                }
+                return '<svg class="qr" viewBox="0 0 21 21" fill="currentColor" aria-label="Kode verifikasi blockchain" role="img">' + cells + '</svg>';
+            }
+
+            function vCert(id) {
+                if (!id) {
+                    var d = S.txs.filter(function (t) { return t.step >= 6 });
+                    return bar('Sertifikat Keberlanjutan ESG') +
+                        '<div class="page">' +
+                        (d.length ? d.map(function (t) {
+                            var l = byId(t.lid) || { nama: '-', mat: 'kayu' }, m = MAT[l.mat] || MAT.kayu;
+                            return '<article class="row">' +
+                                '<div class="avatar" style="border-radius:12px">' + ic('cert', 24) + '</div>' +
+                                '<div class="rowb"><h3>CRC-' + new Date(t.date).getFullYear() + '-' + String(t.id).padStart(4, '0') + '</h3><p class="sub">' + esc(l.nama) + '</p></div>' +
+                                '<div class="rowp"><strong>' + co2f(t.qty * m.f) + '</strong><small>CO₂e dihemat</small></div>' +
+                                '<a class="stretch" href="#/sertifikat/' + t.id + '"></a>' +
+                                '</article>';
+                        }).join('') : '<div class="empty"><h3>Belum ada sertifikat terbit</h3><p>Sertifikat diterbitkan secara otomatis segera setelah transaksi jual beli limbah selesai.</p><a class="btn tonal" href="#/katalog">Jelajahi Katalog</a></div>') +
+                        '</div>';
+                }
+                var t = S.txs.filter(function (x) { return String(x.id) === id })[0];
+                if (!t) return notFound();
+                if (t.step < 6) {
+                    return bar('Sertifikat') +
+                        '<div class="page"><div class="empty"><h3>Sertifikat Belum Terbit</h3><p>Sertifikat baru dapat dicetak setelah pesanan dikonfirmasi dan pencairan escrow selesai.</p><a class="btn tonal" href="#/transaksi/' + t.id + '">Periksa Status Transaksi</a></div></div>';
+                }
+                var l = byId(t.lid) || { nama: '-', mat: 'kayu', seller: '-' }, m = MAT[l.mat] || MAT.kayu, co = t.qty * m.f, no = 'CRC-' + new Date(t.date).getFullYear() + '-' + String(t.id).padStart(4, '0');
+                return bar('Sertifikat Keberlanjutan') +
+                    '<div class="page narrow" style="max-width:620px">' +
+                    '<div class="cert">' +
+                    '<span class="demo-tag">Terverifikasi</span>' +
+                    '<div style="text-align:center;color:var(--p)">' + logo(48) + '</div>' +
+                    '<h2>Sertifikat Rekreasi Sirkular</h2>' +
+                    '<p class="no">Nomor Registrasi: ' + no + '</p>' +
+                    '<p class="sub" style="text-align:center">Menyatakan secara sah bahwa material residu industri berikut telah dialihkan dari pembuangan TPA menjadi bahan baku produktif sirkular.</p>' +
+                    '<div class="who"><span class="sub">Pihak Penghasil Limbah</span><b>' + esc(l.seller) + '</b></div>' +
+                    '<div class="who"><span class="sub">Pihak Pembeli / Pendaur Ulang</span><b>' + esc(S.user.name) + '</b></div>' +
+                    '<div class="card" style="margin-top:16px">' +
+                    '<div class="kv"><span>Klasifikasi Material</span><b>' + esc(l.nama) + '</b></div>' +
+                    '<div class="kv"><span>Volume Tereduksi dari TPA</span><b>' + kgf(t.qty) + '</b></div>' +
+                    '<div class="kv"><span>Penurunan Emisi GRK</span><b style="color:var(--p)">' + num(co) + ' kg CO₂e</b></div>' +
+                    '<div class="kv"><span>Ekuivalensi Serapan Karbon</span><b>' + num(co / 21, 1) + ' pohon/tahun</b></div>' +
+                    '<div class="kv"><span>Tanggal Efektif Transaksi</span><b>' + fmtDate(t.date) + '</b></div>' +
+                    '</div>' +
+                    '<div class="foot">' +
+                    qr(t.id + 3) +
+                    '<p>Pindai barcode untuk verifikasi digital. Data terintegrasi dengan modul pelaporan emisi ESG (Pilar Environmental GRI Standards).</p>' +
+                    '</div></div>' +
+                    '<div class="acts" style="margin-top:20px">' +
+                    '<button class="btn fill" data-act="copyEsg" data-id="' + t.id + '">' + ic('copy', 18) + 'Salin Ringkasan ESG</button>' +
+                    '<button class="btn outline" data-act="print">Cetak Sertifikat</button>' +
+                    '</div></div>';
+            }
+
+            /* ---------- profile & about ---------- */
+            function vProfil() {
+                var s = stats(), by = {};
+                s.done.forEach(function (t) {
+                    var l = byId(t.lid);
+                    if (l) by[l.mat] = (by[l.mat] || 0) + t.qty;
+                });
+                var mx = Math.max.apply(null, [1].concat(Object.keys(by).map(function (k) { return by[k] })));
+                var th = S.theme;
+                return bar('Profil Perusahaan', { back: false }) +
+                    '<div class="page narrow" style="max-width:640px">' +
+                    '<div class="prof">' +
+                    '<div class="big">' + esc(ini(S.user.name)) + '</div>' +
+                    '<h2>' + esc(S.user.name) + '</h2>' +
+                    '<p class="sub">' + (S.user.role === 'penghasil' ? 'Penghasil Limbah Industri' : 'Pembeli / Industri Daur Ulang') + '</p>' +
+                    '<span class="badge" style="margin-top:8px">' + ic('shield', 14) + 'Terverifikasi Kementerian LHK</span>' +
+                    '</div>' +
+                    '<div class="seg" style="margin:8px 0 16px" aria-label="Peran Akun">' +
+                    '<button class="' + (S.user.role === 'penghasil' ? 'on' : '') + '" data-act="setRole" data-v="penghasil">Penghasil Limbah</button>' +
+                    '<button class="' + (S.user.role === 'pembeli' ? 'on' : '') + '" data-act="setRole" data-v="pembeli">Pembeli Bahan Baku</button>' +
+                    '</div>' +
+                    '<div class="sec"><h2>Laporan Dampak ESG: Pilar Lingkungan</h2></div>' +
+                    '<div class="card">' +
+                    '<div class="kv"><span>Limbah Teralihkan dari TPA</span><b>' + kgf(s.kg) + '</b></div>' +
+                    '<div class="kv"><span>Reduksi Jejak Karbon</span><b style="color:var(--p)">' + co2f(s.co) + ' CO₂e</b></div>' +
+                    '<div class="kv"><span>Total Perputaran Transaksi</span><b>' + rp(s.val) + '</b></div>' +
+                    '<div class="kv"><span>Biaya Pembuangan Dihindari</span><b>' + rp(s.av) + '</b></div>' +
+                    '<div class="kv"><span>Sertifikat ESG Diterbitkan</span><b>' + s.done.length + ' sertifikat</b></div>' +
+                    (Object.keys(by).length ?
+                        '<div class="bars" style="margin-top:16px">' +
+                        Object.keys(by).map(function (k) {
+                            return '<div class="b"><span>' + MAT[k].n + '</span><div class="track"><div class="fillb" style="width:' + Math.round(by[k] / mx * 100) + '%"></div></div><span>' + kgf(by[k]) + '</span></div>';
+                        }).join('') + '</div>' :
+                        '<p class="sub" style="margin-top:14px">Grafik pemilahan material akan otomatis terisi setelah transaksi selesai.</p>') +
+                    '</div>' +
+                    '<div class="menu" style="margin-top:24px">' +
+                    '<a href="#/transaksi">' + ic('swap', 20) + '<span>Kelola Transaksi Escrow (' + S.txs.length + ')</span>' + ic('chev', 20) + '</a>' +
+                    '<a href="#/sertifikat">' + ic('cert', 20) + '<span>Koleksi Sertifikat ESG (' + s.done.length + ')</span>' + ic('chev', 20) + '</a>' +
+                    '<a href="#/tentang">' + ic('info', 20) + '<span>Tentang Sirkularitas Circula</span>' + ic('chev', 20) + '</a>' +
+                    '</div>' +
+                    '<div class="sec"><h2>Pilihan Tema Tampilan</h2></div>' +
+                    '<div class="seg">' +
+                    '<button class="' + (th === 'light' ? 'on' : '') + '" data-act="theme" data-v="light">Terang</button>' +
+                    '<button class="' + (th === 'dark' ? 'on' : '') + '" data-act="theme" data-v="dark">Gelap</button>' +
+                    '<button class="' + (th === 'auto' ? 'on' : '') + '" data-act="theme" data-v="auto">Otomatis</button>' +
+                    '</div>' +
+                    '<div class="acts" style="margin-top:28px">' +
+                    '<button class="btn outline" data-act="reset">Atur Ulang Data Demo</button>' +
+                    '<button class="btn tonal" data-act="logout">' + ic('logout', 18) + 'Keluar dari Akun</button>' +
+                    '</div></div>';
+            }
+
+            function vAbout() {
+                var flow = [
+                    'Pendaftaran & Verifikasi Legalitas KYC Bisnis',
+                    'Unggah Spesifikasi Mutu & Volume Limbah Industri',
+                    'Pencocokan Otomatis Jarak & Kebutuhan Pembeli Terdekat',
+                    'Negosiasi Harga Transparan & Simulasi Reduksi Emisi',
+                    'Pembayaran Aman Terlindungi Rekening Escrow Platform',
+                    'Pengambilan & Penimbangan Material oleh Logistik Mitra',
+                    'Konfirmasi Kualitas Barang & Pencairan Dana ke Penjual',
+                    'Penerbitan Sertifikat Keberlanjutan Terverifikasi ESG'
+                ];
+                return bar('Tentang Circula') +
+                    '<div class="page narrow about" style="max-width:680px">' +
+                    '<div class="card pc" style="text-align:center">' +
+                    '<div style="color:var(--p)">' + logo(58) + '</div>' +
+                    '<h2 style="font-size:24px;margin:10px 0 6px">Circula Ecosystem</h2>' +
+                    '<p style="color:var(--on-pc);line-height:1.55">Marketplace B2B Symbiosis Industri yang mentransformasikan residu manufaktur menjadi sumber daya sirkular berdaya saing tinggi, dilengkapi kalkulator jejak karbon dan sertifikasi ESG terintegrasi.</p>' +
+                    '</div>' +
+                    '<h3>Model Bisnis & Nilai Strategis</h3>' +
+                    '<p>Platform dua sisi (two-sided B2B platform) yang memfasilitasi simbiosis industri antara penghasil limbah (waste generators) dan industri pemanfaat/pendaur ulang (offtakers). Menghasilkan efisiensi rantai pasok, diversifikasi pendapatan dari limbah, dan penekanan biaya pembuangan TPA.</p>' +
+                    '<h3>Alur Transaksi & Keamanan Escrow</h3>' +
+                    '<div class="steps" style="margin-top:14px">' +
+                    flow.map(function (s, i) {
+                        return '<div class="step done"><div class="dot">' + (i + 1) + '</div><div class="t">' + s + '</div></div>';
+                    }).join('') +
+                    '</div>' +
+                    '<h3>Kesesuaian SDGs (Tujuan Pembangunan Berkelanjutan)</h3>' +
+                    '<div class="chips">' +
+                    '<span class="chip on">SDG 12 Konsumsi & Produksi Bertanggung Jawab</span>' +
+                    '<span class="chip on">SDG 13 Penanganan Perubahan Iklim</span>' +
+                    '<span class="chip on">SDG 9 Industri, Inovasi, & Infrastruktur</span>' +
+                    '<span class="chip">SDG 8 Pekerjaan Layak & Pertumbuhan Ekonomi</span>' +
+                    '<span class="chip">SDG 17 Kemitraan Menuju Tujuan</span>' +
+                    '</div>' +
+                    '<p class="note">' + ic('info', 18) + '<span>Seluruh data material, harga patokan, dan matriks emisi pada platform ini adalah percontohan interaktif demonstrasi sistem Circula.</span></p>' +
+                    '</div>';
+            }
+
+            /* ---------- navigation & rendering router ---------- */
+            function setNav(r) {
+                var map = { listing: 'katalog', jual: 'katalog', transaksi: 'profil', sertifikat: 'profil', tentang: 'profil' }, a = map[r] || r;
+                var items = NAV.map(function (n) {
+                    var on = n[0] === a;
+                    return '<a class="navi ' + (on ? 'on' : '') + '" href="#/' + n[0] + '"' + (on ? ' aria-current="page"' : '') + '>' +
+                        '<span class="pill">' + ic(n[2]) + '</span>' + n[1] +
+                        '</a>';
+                }).join('');
+                $('#bottom').innerHTML = items;
+                $('#rail').innerHTML = '<span class="logo">' + logo(38) + '</span>' + items;
+            }
+
+            var POST = {
+                home: function () {
+                    $('#hsearch').addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        S.ui.kat.q = $('#hq').value;
+                        S.ui.kat.mat = 'all';
+                        location.hash = '#/katalog';
+                    });
+                },
+                katalog: function () {
+                    katFill();
+                    $('#ksort').value = S.ui.kat.sort;
+                    $('#kq').addEventListener('input', function (e) {
+                        S.ui.kat.q = e.target.value;
+                        katFill();
+                    });
+                    $('#ksort').addEventListener('change', function (e) {
+                        S.ui.kat.sort = e.target.value;
+                        katFill();
+                    });
+                },
+                peta: petaFill,
+                kalkulator: function () {
+                    calcFill();
+                    var c = S.ui.calc;
+                    $('#cm').addEventListener('change', function (e) {
+                        c.mat = e.target.value;
+                        c.price = MAT[c.mat].hp;
+                        $('#cp').value = c.price;
+                        calcFill();
+                    });
+                    $('#cv').addEventListener('input', function (e) {
+                        c.vol = +e.target.value;
+                        calcFill();
+                    });
+                    $('#cp').addEventListener('input', function (e) {
+                        c.price = Math.max(0, +e.target.value || 0);
+                        calcFill();
+                    });
+                },
+                jual: function () {
+                    var f = S.ui.sell;
+                    $('#sp').value = MAT[f.mat].hp;
+                    sellEst();
+                    $('#sm').addEventListener('change', function (e) {
+                        f.mat = e.target.value;
+                        $('#sp').value = MAT[f.mat].hp;
+                        $('#photo').innerHTML = tile(f.mat, f.photo);
+                        sellEst();
+                    });
+                    $('#sv').addEventListener('input', sellEst);
+                    $('#sp').addEventListener('input', sellEst);
+                    $('#sf').addEventListener('change', function (e) {
+                        var file = e.target.files[0];
+                        if (!file) return;
+                        var rd = new FileReader();
+                        rd.onload = function () {
+                            f.photo = rd.result;
+                            $('#photo').innerHTML = tile(f.mat, f.photo);
+                        };
+                        rd.readAsDataURL(file);
+                    });
+                }
+            };
+
+            function render() {
+                var parts = location.hash.replace(/^#\/?/, '').split('/'), r = parts[0] || (S.seen ? 'home' : 'splash'), arg = parts[1];
+                var V = {
+                    splash: vSplash, auth: vAuth, onboarding: vOb, home: vHome, katalog: vKat,
+                    listing: vListing, peta: vPeta, kalkulator: vCalc, jual: vSell, transaksi: vTx,
+                    sertifikat: vCert, profil: vProfil, tentang: vAbout
+                };
+                if (!V[r]) r = 'home';
+                document.body.classList.toggle('bare', r === 'splash' || r === 'auth' || r === 'onboarding');
+                main.innerHTML = V[r](arg);
+                setNav(r);
+                if (POST[r]) POST[r](arg);
+                window.scrollTo(0, 0);
+            }
+
+            /* ---------- interactive actions handler ---------- */
+            function setErr(m) { var e = $('#a-err'); if (e) e.textContent = m }
+
+            var ACT = {
+                back: function () { if (history.length > 1) history.back(); else location.hash = '#/home' },
+                guest: function () { S.seen = true; save() },
+                authMode: function (el) { location.hash = '#/auth/' + el.dataset.v },
+                role: function (el) {
+                    S.user.role = el.dataset.v;
+                    [].forEach.call(document.querySelectorAll('#roleseg button'), function (b) { b.classList.toggle('on', b === el) });
+                },
+                submitAuth: function () {
+                    var mode = $('#authform').dataset.mode, em = $('#a-em').value.trim(), pw = $('#a-pw').value, co = $('#a-co') && $('#a-co').value.trim();
+                    if (mode === 'daftar' && !co) return setErr('Harap isi nama perusahaan atau pabrik Anda.');
+                    if (!/^\S+@\S+\.\S+$/.test(em)) return setErr('Masukkan email bisnis resmi yang valid (contoh: contact@pabrik.com).');
+                    if (pw.length < 6) return setErr('Kata sandi keamanan minimal 6 karakter.');
+                    if (mode === 'daftar' && !$('#a-ok').checked) return setErr('Silakan centang persetujuan syarat layanan KYC untuk melanjutkan.');
+                    S.user.name = co || S.user.name;
+                    S.seen = true;
+                    save();
+                    S.ui.ob = 0;
+                    location.hash = mode === 'daftar' ? '#/onboarding' : '#/home';
+                },
+                obNext: function () {
+                    if (S.ui.ob < OB.length - 1) {
+                        S.ui.ob++;
+                        render();
+                    } else {
+                        S.seen = true;
+                        save();
+                        location.hash = '#/home';
+                    }
+                },
+                obSkip: function () { S.seen = true; save(); location.hash = '#/home' },
+                fav: function (el) {
+                    var id = el.dataset.id, i = S.favs.indexOf(id);
+                    if (i > -1) S.favs.splice(i, 1);
+                    else S.favs.push(id);
+                    save();
+                    el.classList.toggle('on', i === -1);
+                    el.setAttribute('aria-pressed', i === -1);
+                    snack(i === -1 ? 'Listing berhasil disimpan' : 'Listing dihapus dari simpanan');
+                },
+                katMat: function (el) { S.ui.kat.mat = el.dataset.v; katFill() },
+                katView: function (el) {
+                    var k = S.ui.kat;
+                    k.view = k.view === 'grid' ? 'list' : 'grid';
+                    el.innerHTML = ic(k.view === 'grid' ? 'list' : 'grid');
+                    katFill();
+                },
+                mapMat: function (el) { S.ui.peta.mat = el.dataset.v; petaFill() },
+                mapMode: function (el) { S.ui.peta.mode = el.dataset.v; S.ui.peta.sel = null; petaFill() },
+                pin: function (el) {
+                    S.ui.peta.sel = el.dataset.id;
+                    petaFill();
+                    var m = document.querySelector('.match.sel');
+                    if (m) m.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                },
+                contactBuyer: function (el) {
+                    var b = BUY.filter(function (x) { return x.id === el.dataset.id })[0];
+                    if (!b) return;
+                    openDlg('<h2>Tawarkan Limbah Industri</h2>' +
+                        '<p class="sub">' + esc(b.nama) + ' (' + esc(b.kota) + ')</p>' +
+                        '<p style="margin:14px 0;line-height:1.55">Pabrik ini siap menampung: <b>' + b.mats.map(function (m) { return MAT[m].n.toLowerCase() }).join(', ') + '</b> dengan kapasitas ' + b.cap + ' ton/bulan. Buat listing sekarang agar tim procurement mereka dapat menghubungi Anda.</p>' +
+                        '<div class="dact"><button class="btn text" data-act="dlgClose">Tutup</button><a class="btn fill" href="#/jual" data-act="dlgClose">Buat Listing Sekarang</a></div>');
+                },
+                dlgClose: function () { closeDlg() },
+                grade: function (el) {
+                    S.ui.sell.grade = el.dataset.v;
+                    [].forEach.call(document.querySelectorAll('[data-act=grade]'), function (b) { b.classList.toggle('on', b === el) });
+                },
+                submitSell: function () {
+                    var f = S.ui.sell, m = MAT[f.mat], v = +$('#sv').value, p = +$('#sp').value, k = $('#sk').value.trim(), n = $('#sn').value.trim() || m.n, e = $('#s-err');
+                    if (!(v > 0)) return e.textContent = 'Harap isi volume limbah dalam kg.';
+                    if (!(p > 0)) return e.textContent = 'Harap isi harga yang diminta per kg.';
+                    if (!k) return e.textContent = 'Harap isi kota lokasi penyimpanan limbah.';
+                    if (!$('#sb3').checked) return e.textContent = 'Konfirmasi bahwa limbah adalah kategori Non-B3 untuk mematuhi regulasi.';
+                    var id = 'u' + Date.now();
+                    S.mine.unshift({
+                        id: id, mat: f.mat, nama: n, vol: v, harga: p, grade: f.grade,
+                        seller: S.user.name, kota: k, km: 4 + Math.floor(Math.random() * 26),
+                        x: 30 + Math.round(Math.random() * 40), y: 30 + Math.round(Math.random() * 40),
+                        r: 5.0, desk: $('#sd').value.trim() || 'Kondisi material siap dijemput dengan armada logistik terpal/kontainer.',
+                        photo: f.photo
+                    });
+                    f.photo = null;
+                    save();
+                    snack('Listing baru sukses ditayangkan di katalog');
+                    location.hash = '#/listing/' + id;
+                },
+                del: function (el) {
+                    S.mine = S.mine.filter(function (l) { return l.id !== el.dataset.id });
+                    save();
+                    snack('Listing telah dihapus');
+                    location.hash = '#/katalog';
+                },
+                offer: function (el) {
+                    var l = byId(el.dataset.id);
+                    openDlg('<h2>Ajukan Negosiasi Harga</h2>' +
+                        '<p class="sub">' + esc(l.nama) + ' (' + esc(l.seller) + ')</p>' +
+                        '<label class="fld" style="margin-top:16px"><span>Tawaran Harga per kg (Rp)</span><input id="o-p" type="number" value="' + Math.round(l.harga * 0.95) + '"><small>Harga listing awal ' + rp(l.harga) + ' per kg</small></label>' +
+                        '<label class="fld"><span>Volume Dibutuhkan (kg)</span><input id="o-q" type="number" value="' + Math.min(l.vol, 1000) + '" max="' + l.vol + '"></label>' +
+                        '<div class="dact"><button class="btn text" data-act="dlgClose">Batal</button><button class="btn fill" data-act="sendOffer" data-id="' + l.id + '">Kirim Penawaran Resmi</button></div>');
+                },
+                sendOffer: function (el) {
+                    var l = byId(el.dataset.id);
+                    closeDlg();
+                    snack('Penawaran resmi telah dikirim ke ' + l.seller);
+                },
+                buy: function (el) {
+                    var l = byId(el.dataset.id), mn = Math.min(100, l.vol), def = Math.min(l.vol, 1000);
+                    openDlg('<h2>Pemesanan Aman via Escrow</h2>' +
+                        '<p class="sub">' + esc(l.nama) + '</p>' +
+                        '<label class="fld" style="margin-top:16px"><span>Volume Pembelian: <b id="bqv" style="color:var(--p)"></b></span>' +
+                        '<input id="bq" type="range" min="' + mn + '" max="' + l.vol + '" step="50" value="' + def + '">' +
+                        '</label>' +
+                        '<div class="card" id="bsum" style="margin:12px 0"></div>' +
+                        '<p class="note">' + ic('shield', 18) + '<span>Jaminan Keamanan: Dana ditahan oleh rekening escrow Circula dan baru dicairkan setelah barang tiba dan Anda konfirmasi sesuai mutu.</span></p>' +
+                        '<div class="dact"><button class="btn text" data-act="dlgClose">Batal</button><button class="btn fill" data-act="doBuy" data-id="' + l.id + '">Setor Dana ke Escrow</button></div>');
+                    var upd = function () {
+                        var q = +$('#bq').value, mo = money({ lid: l.id, qty: q, price: l.harga });
+                        $('#bqv').textContent = kgf(q);
+                        $('#bsum').innerHTML = '<div class="kv"><span>Subtotal Material</span><b>' + rp(mo.sub) + '</b></div>' +
+                            '<div class="kv"><span>Estimasi Logistik Truk</span><b>' + rp(mo.log) + '</b></div>' +
+                            '<div class="kv" style="border-top:2px solid var(--ol);padding-top:10px"><span>Total Terbayar</span><b style="color:var(--p);font-size:16px">' + rp(mo.total) + '</b></div>' +
+                            '<div class="kv"><span>Reduksi Emisi Karbon</span><b>' + num(q * MAT[l.mat].f) + ' kg CO₂e</b></div>';
+                    };
+                    upd();
+                    $('#bq').addEventListener('input', upd);
+                },
+                doBuy: function (el) {
+                    var l = byId(el.dataset.id), q = +$('#bq').value;
+                    var id = (S.txs.reduce(function (m, t) { return Math.max(m, t.id) }, 0)) + 1;
+                    S.txs.push({ id: id, lid: l.id, qty: q, price: l.harga, step: 1, date: new Date().toISOString() });
+                    save();
+                    closeDlg();
+                    snack('Dana aman tersimpan di escrow');
+                    location.hash = '#/transaksi/' + id;
+                },
+                advance: function (el) {
+                    var t = S.txs.filter(function (x) { return String(x.id) === el.dataset.id })[0];
+                    if (t && t.step < 6) {
+                        t.step++;
+                        save();
+                        render();
+                        snack(t.step >= 6 ? 'Transaksi tuntas! Sertifikat ESG telah terbit' : 'Status transaksi diperbarui');
+                    }
+                },
+                copyEsg: function (el) {
+                    var t = S.txs.filter(function (x) { return String(x.id) === el.dataset.id })[0], l = byId(t.lid) || { nama: '-', mat: 'kayu' }, m = MAT[l.mat];
+                    var txt = 'Circula | Sertifikat Keberlanjutan CRC-' + new Date(t.date).getFullYear() + '-' + String(t.id).padStart(4, '0') +
+                        '\nMaterial: ' + l.nama +
+                        '\nVolume dialihkan dari TPA: ' + num(t.qty) + ' kg' +
+                        '\nEmisi GRK dihemat: ' + num(t.qty * m.f) + ' kg CO2e' +
+                        '\nTanggal Transaksi: ' + fmtDate(t.date) +
+                        '\nPlatform: Circula Marketplace Limbah Industri Sirkular';
+                    try {
+                        navigator.clipboard.writeText(txt).then(function () {
+                            snack('Ringkasan ESG berhasil disalin ke clipboard');
+                        }, function () {
+                            snack('Salin otomatis tidak didukung di browser ini');
+                        });
+                    } catch (e) {
+                        snack('Salin otomatis tidak didukung di browser ini');
+                    }
+                },
+                print: function () {
+                    try { window.print() } catch (e) { snack('Fitur cetak tidak tersedia') }
+                },
+                setRole: function (el) {
+                    S.user.role = el.dataset.v;
+                    S.ui.peta.mode = null;
+                    save();
+                    render();
+                    snack('Peran akun beralih ke: ' + (S.user.role === 'penghasil' ? 'Penghasil Limbah' : 'Pembeli Bahan Baku'));
+                },
+                theme: function (el) {
+                    S.theme = el.dataset.v;
+                    applyTheme();
+                    save();
+                    render();
+                },
+                reset: function () {
+                    S.mine = [];
+                    S.favs = [];
+                    seed();
+                    save();
+                    render();
+                    snack('Data demo berhasil diatur ulang ke kondisi awal');
+                },
+                logout: function () {
+                    S.seen = false;
+                    save();
+                    location.hash = '#/splash';
+                }
+            };
+
+            document.addEventListener('click', function (e) {
+                var el = e.target.closest('[data-act]');
+                if (!el) return;
+                var f = ACT[el.dataset.act];
+                if (!f) return;
+                if (el.dataset.act === 'fav' || el.dataset.act === 'contactBuyer') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                f(el);
+            });
+
+            dlg.addEventListener('click', function (e) { if (e.target === dlg) closeDlg() });
+            window.addEventListener('hashchange', render);
+            render();
+        })();
+    </script>
+</body>
+
+</html>
